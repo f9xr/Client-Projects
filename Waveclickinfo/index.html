@@ -12,6 +12,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -51,6 +54,16 @@
         .fade-in-section.is-visible {
             opacity: 1;
             transform: none;
+        }
+
+        /* 3D Tilt Effect */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+            transition: transform 0.1s;
+        }
+        .tilt-content {
+            transform: translateZ(20px);
         }
     </style>
 </head>
@@ -378,7 +391,7 @@
                 <div class="space-y-16">
                     <div class="flex items-center space-x-8">
                         <div class="flex-grow">
-                            <h4 class="text-2xl font-bold tracking-tight">Marcus Thorne</h4>
+                            <h4 class="text-2xl font-bold tracking-tight">Momu</h4>
                             <p class="text-primary text-xs font-bold uppercase tracking-widest mb-4">Project Director
                             </p>
                             <p class="text-xs text-text-muted leading-relaxed max-w-xs">Experienced strategist with over
@@ -391,7 +404,7 @@
                     </div>
                     <div class="flex items-center space-x-8">
                         <div class="flex-grow">
-                            <h4 class="text-2xl font-bold tracking-tight">Elena Vance</h4>
+                            <h4 class="text-2xl font-bold tracking-tight">AKM</h4>
                             <p class="text-primary text-xs font-bold uppercase tracking-widest mb-4">Creative Head</p>
                             <p class="text-xs text-text-muted leading-relaxed max-w-xs">Award-winning designer focusing
                                 on high-end visual experiences.</p>
@@ -403,7 +416,7 @@
                     </div>
                     <div class="flex items-center space-x-8">
                         <div class="flex-grow">
-                            <h4 class="text-2xl font-bold tracking-tight">David Chen</h4>
+                            <h4 class="text-2xl font-bold tracking-tight">David</h4>
                             <p class="text-primary text-xs font-bold uppercase tracking-widest mb-4">Tech Lead</p>
                             <p class="text-xs text-text-muted leading-relaxed max-w-xs">Innovator in cloud architecture
                                 and enterprise-grade software systems.</p>
@@ -443,13 +456,8 @@
                 </div>
             </div>
 
-            <!-- Tags Filter -->
-            <div class="flex flex-wrap gap-2 mb-12" id="tagsContainer">
-                <button
-                    class="px-5 py-2 rounded-full border border-primary bg-primary text-black text-xs font-bold uppercase transition-all"
-                    data-tag="all">All</button>
-                <!-- Dynamic tags will be injected here -->
-            </div>
+            <!-- Tags Filter (Removed as requested) -->
+            <!-- <div class="flex flex-wrap gap-2 mb-12" id="tagsContainer"></div> -->
 
             <!-- Blog Grid -->
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="blogGrid">
@@ -476,38 +484,78 @@
                     get back to you shortly.</p>
             </div>
 
-            <form class="space-y-6">
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="space-y-2">
-                        <label class="text-xs font-bold uppercase tracking-widest text-text-muted ml-1">Name</label>
-                        <input type="text"
-                            class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:ring-1 focus:ring-primary focus:border-primary transition-all placeholder-white/20"
-                            placeholder="John Doe">
+            <div class="grid lg:grid-cols-12 gap-12">
+                <!-- Contact Info Cards -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div
+                        class="bg-bg-card p-8 rounded-3xl border border-white/5 hover:border-primary/30 transition-all group tilt-card">
+                        <div
+                            class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-black transition-colors tilt-content">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2 tilt-content">Chat on WhatsApp</h4>
+                        <p class="text-text-muted text-sm mb-6 tilt-content">Direct access to our support team.</p>
+                        <a href="https://wa.link/zufcl4" target="_blank"
+                            class="inline-flex items-center gap-2 text-primary font-bold uppercase text-xs tracking-widest hover:underline tilt-content">
+                            Message Us <span class="material-symbols-outlined text-sm">north_east</span>
+                        </a>
                     </div>
-                    <div class="space-y-2">
-                        <label class="text-xs font-bold uppercase tracking-widest text-text-muted ml-1">Email</label>
-                        <input type="email"
-                            class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:ring-1 focus:ring-primary focus:border-primary transition-all placeholder-white/20"
-                            placeholder="john@example.com">
+
+                    <div
+                        class="bg-bg-card p-8 rounded-3xl border border-white/5 hover:border-primary/30 transition-all group tilt-card">
+                        <div
+                            class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-black transition-colors tilt-content">
+                            <i class="fa-regular fa-envelope text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2 tilt-content">Email Us</h4>
+                        <p class="text-text-muted text-sm mb-6 tilt-content">Waveclickinfo@gmail.com</p>
+                        <a href="mailto:Waveclickinfo@gmail.com"
+                            class="inline-flex items-center gap-2 text-primary font-bold uppercase text-xs tracking-widest hover:underline tilt-content">
+                            Send Email <span class="material-symbols-outlined text-sm">north_east</span>
+                        </a>
                     </div>
                 </div>
-                <div class="space-y-2">
-                    <label class="text-xs font-bold uppercase tracking-widest text-text-muted ml-1">Subject</label>
-                    <input type="text"
-                        class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:ring-1 focus:ring-primary focus:border-primary transition-all placeholder-white/20"
-                        placeholder="Project Inquiry">
+
+                <!-- Form -->
+                <div class="lg:col-span-7">
+                    <form id="contactForm" class="space-y-6 bg-bg-card p-8 md:p-10 rounded-3xl border border-white/5">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label
+                                    class="text-xs font-bold uppercase tracking-widest text-text-muted ml-1">Name</label>
+                                <input type="text" id="formName" required
+                                    class="w-full bg-bg-deep border border-white/10 rounded-2xl px-6 py-4 focus:ring-1 focus:ring-primary focus:border-primary transition-all placeholder-white/20"
+                                    placeholder="John Doe">
+                            </div>
+                            <div class="space-y-2">
+                                <label
+                                    class="text-xs font-bold uppercase tracking-widest text-text-muted ml-1">Email</label>
+                                <input type="email" id="formEmail" required
+                                    class="w-full bg-bg-deep border border-white/10 rounded-2xl px-6 py-4 focus:ring-1 focus:ring-primary focus:border-primary transition-all placeholder-white/20"
+                                    placeholder="john@example.com">
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label
+                                class="text-xs font-bold uppercase tracking-widest text-text-muted ml-1">Subject</label>
+                            <input type="text" id="formSubject" required
+                                class="w-full bg-bg-deep border border-white/10 rounded-2xl px-6 py-4 focus:ring-1 focus:ring-primary focus:border-primary transition-all placeholder-white/20"
+                                placeholder="Project Inquiry">
+                        </div>
+                        <div class="space-y-2">
+                            <label
+                                class="text-xs font-bold uppercase tracking-widest text-text-muted ml-1">Message</label>
+                            <textarea id="formMessage" required rows="5"
+                                class="w-full bg-bg-deep border border-white/10 rounded-2xl px-6 py-4 focus:ring-1 focus:ring-primary focus:border-primary transition-all placeholder-white/20"
+                                placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-primary text-black font-bold uppercase tracking-widest py-5 rounded-full hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-lg shadow-primary/20">
+                            Send Message
+                        </button>
+                    </form>
                 </div>
-                <div class="space-y-2">
-                    <label class="text-xs font-bold uppercase tracking-widest text-text-muted ml-1">Message</label>
-                    <textarea rows="5"
-                        class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:ring-1 focus:ring-primary focus:border-primary transition-all placeholder-white/20"
-                        placeholder="Tell us about your project..."></textarea>
-                </div>
-                <button type="submit"
-                    class="w-full bg-primary text-black font-bold uppercase tracking-widest py-5 rounded-full hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
-                    Send Message
-                </button>
-            </form>
+            </div>
         </div>
     </section>
     <footer class="bg-bg-card pt-32 pb-12 border-t border-white/5">
@@ -563,29 +611,11 @@
                 </div>
                 <div class="flex items-center space-x-6">
                     <a href="#" class="text-text-muted hover:text-[#1877F2] transition-colors"><i
-                            class="fab fa-facebook-f text-lg"></i></a>
-                    <!-- Facebook - using generic class, assume fontawesome or similar loaded, wait user didn't ask for fontawesome but mentioned icons. I will add SVGs to be safe since FA isn't clearly loaded globally -->
-                    <a href="#" class="text-text-muted hover:text-[#E1306C] transition-colors">
-                        <!-- Instagram SVG -->
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                        </svg>
-                    </a>
-                    <a href="#" class="text-text-muted hover:text-white transition-colors">
-                        <!-- X (Twitter) SVG -->
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                        </svg>
-                    </a>
-                    <a href="#" class="text-text-muted hover:text-[#1877F2] transition-colors">
-                        <!-- Facebook SVG -->
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.791-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                        </svg>
-                    </a>
+                            class="fa-brands fa-facebook-f text-lg"></i></a>
+                    <a href="#" class="text-text-muted hover:text-[#E1306C] transition-colors"><i
+                            class="fa-brands fa-instagram text-lg"></i></a>
+                    <a href="#" class="text-text-muted hover:text-white transition-colors"><i
+                            class="fa-brands fa-x-twitter text-lg"></i></a>
                 </div>
             </div>
         </div>
@@ -607,7 +637,6 @@
                     rawData: [],
                     filteredData: [],
                     watchlist: JSON.parse(localStorage.getItem('waveClick_watchlist') || '[]'),
-                    activeTag: 'all',
                     currentPage: 1
                 };
 
@@ -647,18 +676,16 @@
                         year: 'numeric', month: 'long', day: 'numeric'
                     });
 
-                    return { id, title, image, categories, link, date, summary: doc.body.textContent.substring(0, 100) + '...' };
+                    return { id, title, image, link, date, summary: doc.body.textContent.substring(0, 100) + '...' };
                 }
 
                 function applyFilters() {
                     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
                     const sortOrder = document.getElementById('sortSelect').value;
-                    const activeTag = state.activeTag;
 
                     let filtered = state.rawData.filter(post => {
                         const matchesSearch = post.title.toLowerCase().includes(searchTerm);
-                        const matchesTag = activeTag === 'all' || post.categories.includes(activeTag);
-                        return matchesSearch && matchesTag;
+                        return matchesSearch;
                     });
 
                     if (sortOrder === 'newest') {
@@ -670,29 +697,10 @@
 
                     state.filteredData = filtered;
                     state.currentPage = 1;
-                    renderTags();
                     renderGrid();
                 }
 
-                function renderTags() {
-                    const tagsContainer = document.getElementById('tagsContainer');
-                    const allTags = new Set();
-                    state.rawData.forEach(post => post.categories.forEach(tag => allTags.add(tag)));
-
-                    let html = `<button class="px-5 py-2 rounded-full border ${state.activeTag === 'all' ? 'border-primary bg-primary text-black' : 'border-white/10 bg-white/5 hover:border-white/30'} text-xs font-bold uppercase transition-all" onclick="filterByTag('all')">All</button>`;
-
-                    allTags.forEach(tag => {
-                        const isActive = state.activeTag === tag;
-                        html += `<button class="px-5 py-2 rounded-full border ${isActive ? 'border-primary bg-primary text-black' : 'border-white/10 bg-white/5 hover:border-white/30'} text-xs font-bold uppercase transition-all" onclick="filterByTag('${tag}')">${tag}</button>`;
-                    });
-
-                    tagsContainer.innerHTML = html;
-                }
-
-                window.filterByTag = function (tag) {
-                    state.activeTag = tag;
-                    applyFilters();
-                }
+                // Removed renderTags() and filterByTag() functions
 
                 function renderGrid() {
                     const grid = document.getElementById('blogGrid');
@@ -707,16 +715,11 @@
                     }
 
                     grid.innerHTML = pageData.map(post => `
-                    <div class="bg-bg-card rounded-2xl overflow-hidden group border border-white/5 hover:border-primary/30 transition-all duration-500">
-                        <div class="relative h-48 overflow-hidden">
+                    <div class="bg-bg-card rounded-2xl overflow-hidden group border border-white/5 hover:border-primary/30 transition-all duration-500 tilt-card">
+                        <div class="relative h-48 overflow-hidden tilt-content">
                             <img src="${post.image}" alt="${post.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                            <div class="absolute top-4 left-4">
-                                <span class="bg-black/50 backdrop-blur-md text-white text-[10px] font-bold uppercase px-3 py-1 rounded-full border border-white/10">
-                                    ${post.categories[0] || 'Insight'}
-                                </span>
-                            </div>
                         </div>
-                        <div class="p-6">
+                        <div class="p-6 tilt-content">
                             <div class="flex items-center gap-2 text-[10px] text-text-muted uppercase font-bold tracking-widest mb-3">
                                 <span>${post.date}</span>
                             </div>
@@ -783,6 +786,44 @@
 
             document.querySelectorAll('.fade-in-section').forEach(section => {
                 observer.observe(section);
+            });
+
+            // Contact Form Handler
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    const name = document.getElementById('formName').value;
+                    const email = document.getElementById('formEmail').value;
+                    const subject = document.getElementById('formSubject').value;
+                    const message = document.getElementById('formMessage').value;
+
+                    const mailtoLink = `mailto:Waveclickinfo@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message)}`;
+
+                    window.location.href = mailtoLink;
+                });
+            }
+
+            // Simple 3D Tilt Script
+            document.querySelectorAll('.tilt-card').forEach(card => {
+                card.addEventListener('mousemove', function (e) {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    const rotateX = ((y - centerY) / centerY) * -5; // Max rotation 5deg
+                    const rotateY = ((x - centerX) / centerX) * 5;
+
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+                });
             });
         });
     </script>
