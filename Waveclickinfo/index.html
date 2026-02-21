@@ -1,832 +1,804 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Wave Click Info | Digital Agency for Corporate Excellence</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#D4FF37", // Neon yellow-green accent
-                        "bg-deep": "#080808",
-                        "bg-card": "#121212",
-                        "text-muted": "#A1A1AA",
-                    },
-                    fontFamily: {
-                        "sans": ["'Plus Jakarta Sans'", "sans-serif"]
-                    },
-                },
-            },
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer base {
-            body {
-                @apply bg-bg-deep text-white antialiased selection:bg-primary selection:text-black;
-            }
-        }
-        .flower-frame {
-            mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 0C56.9 0 62.5 5.6 62.5 12.5C62.5 13.4 62.4 14.3 62.2 15.2C68.6 11.5 76.9 12.6 81.9 17.6C86.9 22.6 88 30.9 84.3 37.3C85.2 37.1 86.1 37 87 37C94.2 37 100 42.8 100 50C100 57.2 94.2 63 87 63C86.1 63 85.2 62.9 84.3 62.7C88 69.1 86.9 77.4 81.9 82.4C76.9 87.4 68.6 88.5 62.2 84.8C62.4 85.7 62.5 86.6 62.5 87.5C62.5 94.4 56.9 100 50 100C43.1 100 37.5 94.4 37.5 87.5C37.5 86.6 37.6 85.7 37.8 84.8C31.4 88.5 23.1 87.4 18.1 82.4C13.1 77.4 12 69.1 15.7 62.7C14.8 62.9 13.9 63 13 63C5.8 63 0 57.2 0 50C0 42.8 5.8 37 13 37C13.9 37 14.8 37.1 15.7 37.3C12 30.9 13.1 22.6 18.1 17.6C23.1 12.6 31.4 11.5 37.8 15.2C37.6 14.3 37.5 13.4 37.5 12.5C37.5 5.6 43.1 0 50 0Z" fill="black"/></svg>');
-            mask-size: contain;
-            mask-repeat: no-repeat;
-            mask-position: center;
-        }
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-            will-change: opacity, visibility;
-        }
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: none;
-        }
+    <title>Shared on THEMELOCK.COM - Seoly — SEO & Digital Marketing Website Template</title>
+    <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" >
+    <meta content="Seoly — SEO & Digital Marketing Website Template" name="description" >
+    <meta content="" name="keywords" >
+    <meta content="" name="author" >
+    <!-- CSS Files
+    ================================================== -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
+    <link href="css/vendors.css" rel="stylesheet" type="text/css" >
+    <link href="css/style.css" rel="stylesheet" type="text/css" >
+    <link href="css/coloring.css" rel="stylesheet" type="text/css" >
+    <!-- color scheme -->
+    <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css" >
 
-        /* 3D Tilt Effect */
-        .tilt-card {
-            transform-style: preserve-3d;
-            transform: perspective(1000px);
-            transition: transform 0.1s;
-        }
-        .tilt-content {
-            transform: translateZ(20px);
-        }
-    </style>
 </head>
 
 <body>
-    <nav class="fixed top-0 w-full z-50 bg-bg-deep/80 backdrop-blur-md border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-                    <span class="material-symbols-outlined text-black font-bold text-sm">waves</span>
-                </div>
-                <span class="text-xl font-extrabold tracking-tighter">Wave Click Info</span>
-            </div>
-            <div
-                class="hidden md:flex items-center space-x-10 text-xs font-bold uppercase tracking-widest text-text-muted">
-                <a class="hover:text-primary transition-colors" href="#services">Services</a>
-                <a class="hover:text-primary transition-colors" href="#portfolio">Portfolio</a>
-                <a class="hover:text-primary transition-colors" href="#how-we-work">Process</a>
-                <a class="hover:text-primary transition-colors" href="#leadership">Leadership</a>
-                <a class="hover:text-primary transition-colors" href="#blog">Blog</a>
-                <a class="bg-primary text-black px-6 py-2.5 rounded-full flex items-center space-x-2 hover:opacity-90 transition-all"
-                    href="#contact">
-                    <span>Let's Talk</span>
-                    <span class="material-symbols-outlined text-sm">north_east</span>
-                </a>
-            </div>
-        </div>
-    </nav>
-    <section class="relative pt-40 pb-24 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="grid lg:grid-cols-12 gap-12 items-end">
-                <div class="lg:col-span-8">
-                    <h1 class="text-6xl md:text-8xl font-extrabold leading-[0.9] tracking-tighter mb-12">
-                        We Build <br />
-                        <span class="text-primary italic">— Brands</span> that <br />
-                        Stand Out
-                    </h1>
-                    <div
-                        class="flex flex-col md:flex-row items-start md:items-center space-y-6 md:space-y-0 md:space-x-12">
-                        <p class="text-lg text-text-muted max-w-md font-medium leading-relaxed">
-                            Easily connect your corporate vision to the digital world through our high-end strategy and
-                            bespoke execution.
-                        </p>
-                        <a class="group relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-black rounded-full group bg-primary hover:scale-105 transition-all"
-                            href="#">
-                            <span class="px-8 py-4 flex items-center gap-2 uppercase font-bold tracking-widest">
-                                Let's Work <span class="material-symbols-outlined text-sm">north_east</span>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-                <div class="lg:col-span-4 flex justify-end">
-                    <div class="relative">
-                        <div
-                            class="w-48 h-48 bg-white/5 border border-white/10 rounded-full flex flex-col items-center justify-center text-center p-6 flower-frame">
-                            <span class="text-4xl font-bold">12+</span>
-                            <span class="text-[10px] uppercase tracking-tighter text-text-muted mt-1 leading-none">Years
-                                of Service <br /> Experience</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-bg-card">
-                    <img alt="Branding"
-                        class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3_8LiwwAoSt_wMFAH8peeRKOj31Nopi2uuxoZUqgIRL13UY1eIqhMpPM3Ljg-Lo4JIqNIx3o0191dMlQKo8cwcKjOCYQzHmcnV3AAropQhrW4wFPWDyV9VFQne3voLaHUOCdYmqHimgynYgcnx5lGpk4lnt7hghfnIlVeht9-05XxkEr5QUWrd4l_721fmbS5AhL9LPPDkgCQ9wUxPCrTyhL_PUtc6my6J53sHCiRQkcbv2AJCFMpR_dd5erl8ryqrLiC61hGUo8" />
-                </div>
-                <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-bg-card mt-8">
-                    <img alt="Strategy"
-                        class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxlR82byT8FrmmMgg3O2HM_DNrTMn3d63-2qaLo2Ls5otA992OcMCrz0WyPTGKKEoEq2xWDlf81w_a9Q4U73uqhkV9oRPXYb1FYCARlId5pM_0cCXbGRJWR7R-phyP5i7mUtKyY-ujANpDqfT2GdqMcM_QoEqzN_Uq9G6UG_y7wpGClKyfnHNqgGHM19j_a0TzjACWkunc9soasWvLRUjUel94Ur1SewgoB8hSx__vbsCKzMfng6gHyD4fD79ELKqpE8H1iXY169E" />
-                </div>
-                <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-bg-card">
-                    <img alt="Digital"
-                        class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxHqyqLvHd_sQpw-UhpDypKYT5gaFFUy1rdSDl2boBzMFw6mpvGTAbBtGqu8kDDvX6GSenYhbqRSp_m9i7lNfXiaDFZR2aOTxyMLyi06S0hcFE3oTzB1whSUcDomY-syGi2MUomtsqh74o3BOulnS0yfZ4xIdJMfe7m4n5AcaM5Ydi2_HPxlKGHjH7kXRFsJ1eFzBB_JDZ16dTQJEdXzHqoPl7JFG17_d5KGDv8713-IUi5vGp-nGpkAuyHhtgt0sKk87L1BwusQY" />
-                </div>
-                <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-bg-card mt-8">
-                    <img alt="Development"
-                        class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-ZvpoJAvghSGCeXUcP6flTSKNrkq_te3NH4KMWMTXJm4oUAsAeouk_Ti3CZO6Ysh6CMZCn2rZsYcSqwKvRowhSbF181oEPDI81vBVGz9tFCZ4YFm0bFx7IPgUSvuOTIZbSJE-Q8imBNvqoRL_EvLurOQwLtO4f3vjuRizKk4iLc_Zb362ULn4VunM-Mf_vhI4J6L56fk1Ql7Bm8V6OFi6v9N0tBtYCQiZPSFszAnDvOcHlltFiznKg7AskK1UN3C2Pe0aWNkcjfk" />
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="py-24 border-y border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-16">
-                <p class="text-primary text-xs font-bold uppercase tracking-widest mb-4">• About Us</p>
-                <h2 class="text-4xl md:text-5xl font-bold tracking-tight max-w-2xl">
-                    Smart, fast, and Creative — <span class="text-text-muted">Digital experiences built for
-                        growth.</span>
-                </h2>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-bg-card p-12 rounded-3xl border border-white/5">
-                    <p class="text-xs text-text-muted uppercase tracking-widest mb-8">• 4x meetings booked</p>
-                    <div class="text-7xl font-bold tracking-tighter mb-4">4x</div>
-                </div>
-                <div class="bg-bg-card p-12 rounded-3xl border border-white/5">
-                    <p class="text-xs text-text-muted uppercase tracking-widest mb-8">• 2x increase in open rate</p>
-                    <div class="text-7xl font-bold tracking-tighter mb-4">2x</div>
-                </div>
-                <div class="bg-bg-card p-12 rounded-3xl border border-white/5 relative overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent"></div>
-                    <p class="text-xs text-text-muted uppercase tracking-widest mb-8">• ROI growth</p>
-                    <div class="text-7xl font-bold tracking-tighter mb-4 text-primary">400%</div>
-                </div>
-            </div>
-            <div class="mt-16 flex flex-wrap gap-8 text-sm font-bold uppercase tracking-widest text-text-muted">
-                <span>/ Results Driven Solutions</span>
-                <span>/ Strategic Experiences</span>
-                <span>/ Purposeful Designs</span>
-            </div>
-        </div>
-    </section>
-    <section class="py-32" id="services">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
-                <div class="max-w-xl">
-                    <p class="text-primary text-xs font-bold uppercase tracking-widest mb-4">• Services</p>
-                    <h2 class="text-5xl md:text-6xl font-bold tracking-tighter">We Deliver — Comprehensive Solutions.
-                    </h2>
-                </div>
-                <p class="text-text-muted max-w-xs text-sm font-medium mb-2">
-                    High-end digital agency services tailored for corporate clients who demand excellence.
-                </p>
-            </div>
-            <div class="space-y-16">
-                <div class="group grid md:grid-cols-12 gap-12 items-center border-t border-white/10 pt-16">
-                    <div class="md:col-span-4">
-                        <div class="text-xs text-primary font-bold mb-4">01</div>
-                        <h3 class="text-5xl font-bold tracking-tighter mb-6">Branding</h3>
-                    </div>
-                    <div class="md:col-span-5 relative h-64 bg-bg-card rounded-2xl overflow-hidden">
-                        <img class="w-full h-full object-cover opacity-50 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2h6Jz3SRTG6ouyqOMin4G_Ryqaj-6DGGbJVXDJjzTWaiZxk8np3OiFRVh-P2BObjcuGZjkK0U4Uhmz-QrKUfneuCgyUhOE7d-fGw-8F9phTICwyfAGvqmp4dYWjHjMnsqD1Khv8z-f-yml_K1QwSwHT4BKkdrYFIK_W2ofu9OsLdrZCi8chSUgy_IyH3gEBWCwJ82XrTzcSprukZrQckMD1E2eFGVDGUvTyTHsXg1kUD8p7GgjwCJlNNOBx16kTnkGNNTkLA2T_k" />
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <div
-                                class="w-16 h-16 bg-primary rounded-full flex items-center justify-center cursor-pointer">
-                                <span class="material-symbols-outlined text-black font-bold">north_east</span>
+    <div id="wrapper">
+        <a href="#" id="back-to-top"></a>
+        
+        <!-- page preloader begin -->
+        <div id="de-loader"></div>
+        <!-- page preloader close -->
+
+        <!-- header begin -->
+        <header class="transparent header-light header-float">
+            <div class="container-float">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="header-inner">
+                            <div class="de-flex sm-pt10">
+                                <div class="de-flex-col">
+                                    <!-- logo begin -->
+                                    <div id="logo">
+                                        <a href="index.html">
+                                            <img class="logo-main" src="images/logo.webp" alt="" >
+                                            <img class="logo-scroll" src="images/logo.webp" alt="" >
+                                            <img class="logo-mobile" src="images/logo.webp" alt="" >
+                                        </a>
+                                    </div>
+                                    <!-- logo close -->
+                                </div>
+                                <div class="de-flex-col header-col-mid">
+                                    <ul id="mainmenu">
+                                        <li><a class="menu-item" href="index.html">Home</a>
+                                            <ul class="mega">
+                                                <li>
+                                                    <div class="container">
+                                                        <div class="sb-menu p-md-4">
+                                                            <div class="row g-4">
+                                                                <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+                                                                    <div class="relative hover text-center overflow-hidden soft-shadow rounded-1">
+                                                                        <a class="p-0" href="index.html">
+                                                                            <img src="images/demo/homepage-1.webp" class="w-100 relative hover-scale-1-1" alt="">
+                                                                        </a>
+                                                                    </div>                            
+                                                                    <h6 class="mt-3">Homepage 1</h6>                          
+                                                                </div>
+
+                                                                <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+                                                                    <div class="relative hover text-center overflow-hidden soft-shadow rounded-1">
+                                                                        <a class="p-0" href="homepage-2.html">
+                                                                            <img src="images/demo/homepage-2.webp" class="w-100 relative hover-scale-1-1" alt="">
+                                                                        </a>
+                                                                    </div>                            
+                                                                    <h6 class="mt-3">Homepage 2</h6>                          
+                                                                </div>
+
+                                                                <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+                                                                    <div class="relative hover text-center overflow-hidden soft-shadow rounded-1">
+                                                                        <a class="p-0" href="homepage-3.html">
+                                                                            <img src="images/demo/homepage-3.webp" class="w-100 relative hover-scale-1-1" alt="">
+                                                                        </a>
+                                                                    </div>                            
+                                                                    <h6 class="mt-3">Homepage 3</h6>                          
+                                                                </div>
+
+                                                                <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+                                                                    <div class="relative hover text-center overflow-hidden soft-shadow rounded-1">
+                                                                        <a class="p-0" href="homepage-4.html">
+                                                                            <img src="images/demo/homepage-4.webp" class="w-100 relative hover-scale-1-1" alt="">
+                                                                        </a>
+                                                                    </div>                            
+                                                                    <h6 class="mt-3">Homepage 4</h6>                          
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>                                                
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a class="menu-item" href="about.html">About Us</a></li>
+                                        <li><a class="menu-item" href="services.html">Services</a>
+                                            <ul>
+                                                <li><a class="menu-item" href="services.html">All Services</a></li>
+                                                <li><a class="menu-item" href="service-single.html">Services Single</a></li>
+                                                <li><a class="menu-item" href="pricing.html">Pricing Plans</a></li>
+                                                <li><a class="menu-item" href="request.html">Get Free Proposal</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a class="menu-item" href="case-studies.html">Case Studies</a></li>
+                                        <li><a class="menu-item" href="blog.html">Blog</a>  
+                                            <ul>
+                                                <li><a class="menu-item" href="blog.html">Blog Default</a></li>
+                                                <li><a class="menu-item" href="blog-2.html">Blog Style 2</a></li>
+                                                <li><a class="menu-item" href="blog-single.html">Blog Single</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a class="menu-item" href="contact.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                                <div class="de-flex-col">
+                                    <div class="menu_side_area">          
+                                        <a class="btn-main fx-slide" href="request.html"><span>Get Free Proposal</span></a>
+                                        <span id="menu-btn"></span>
+                                    </div>
+
+                                    <div id="btn-extra" class="img">
+                                        <img src="images/ui/dots.svg" class="" alt="">
+                                    </div>
+                                </div>                            
                             </div>
                         </div>
                     </div>
-                    <div class="md:col-span-3">
-                        <ul class="space-y-3 text-xs uppercase tracking-widest text-text-muted font-bold">
-                            <li>• Identity Design</li>
-                            <li>• Visual Branding</li>
-                            <li>• Brand Strategy</li>
-                            <li>• Corporate Guidelines</li>
-                        </ul>
-                    </div>
                 </div>
-                <div class="group grid md:grid-cols-12 gap-12 items-center border-t border-white/10 pt-16">
-                    <div class="md:col-span-4">
-                        <div class="text-xs text-primary font-bold mb-4">02</div>
-                        <h3 class="text-5xl font-bold tracking-tighter mb-6">UI/UX Design</h3>
+            </div>
+        </header>
+
+        
+        <!-- header close -->
+        <!-- content begin -->
+        <div class="no-bottom no-top" id="content">
+
+            <div id="top"></div>
+
+            <section class="relative jarallax overflow-hidden">
+                <img src="images/background/1.webp" class="jarallax-img" alt="">
+                <div class="container relative z-2">
+                    <div class="row g-4 align-items-center relative">
+                        <div class="spacer-single sm-hide"></div>
+                        <div class="col-lg-6">
+                            <h1 class="wow fadeInUp" data-wow-delay=".2s">Boost Visibility, Drive Traffic, Increase Conversions.</h1>
+                            <p class="lead wow fadeInUp" data-wow-delay=".4s">Unlock the power of search with our expert SEO and search marketing solutions. Elevate your online presence, drive targeted traffic.</p>
+                            <a class="btn-main mt-2 wow fadeInUp" data-wow-delay=".6s" href="request.html">Get Free Proposal</a>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <img src="images/misc/c1.webp" class="w-100" alt="" data-0="transform: translateY(0px);" data-800="transform: translateY(-500px);">
+                        </div>
                     </div>
-                    <div class="md:col-span-5 relative h-64 bg-bg-card rounded-2xl overflow-hidden">
-                        <img class="w-full h-full object-cover opacity-50 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhIwRtQKCckQH4exB9bNfjxfU0I0xu8_SVOHGLlHFu-xYYlcbLFnpdBTPoWnNWSfi_reUizL6Ba18bDxctEZ0knAUrHYnXfLnXhskpdfEJvtDQVU5ZunpledceCdL3_tX7RHOBN3SttI9nHs8kfjt3mKyAgpNPSHbx42HaAdtrSif0e8wEWUX5eaQ7SsCRfJsfoGsf0lcbArPBmTO-huXW0qvKiqT1Qw429zTF3FyG6f1V2x-A4Mp_K6KXMETXgzFFo81LaoelrGk" />
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <div
-                                class="w-16 h-16 bg-primary rounded-full flex items-center justify-center cursor-pointer">
-                                <span class="material-symbols-outlined text-black font-bold">north_east</span>
+
+                    <div class="spacer-single"></div>
+
+                    <div class="row g-4">
+                        <div class="col-md-4 col-sm-6 mb-sm-30">
+                            <div class="de_count text-center fs-15 wow fadeInRight" data-wow-delay=".0s">
+                                <h3 class="fs-72 fs-xs-60 mb-0">+<span class="timer" data-to="150" data-speed="3000">0</span>%</h3>
+                                <div class="fs-18">Conversion Rate Incrased</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 mb-sm-30">
+                            <div class="de_count text-center fs-15 wow fadeInRight" data-wow-delay=".2s">
+                                <h3 class="fs-72 fs-xs-60 mb-0">+<span class="timer" data-to="23" data-speed="3000">0</span>K</h3>
+                                <div class="fs-18">Happy Customeres</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 mb-sm-30">
+                            <div class="de_count text-center fs-15 wow fadeInRight" data-wow-delay=".4s">
+                                <h3 class="fs-72 fs-xs-60 mb-0">+<span class="timer" data-to="10" data-speed="3000">0</span>M</h3>
+                                <div class="fs-18">Value of Projects</div>
                             </div>
                         </div>
                     </div>
-                    <div class="md:col-span-3">
-                        <ul class="space-y-3 text-xs uppercase tracking-widest text-text-muted font-bold">
-                            <li>• User Interface</li>
-                            <li>• Experience Design</li>
-                            <li>• Wireframing</li>
-                            <li>• Prototyping</li>
-                        </ul>
-                    </div>
                 </div>
-                <div class="group grid md:grid-cols-12 gap-12 items-center border-t border-white/10 pt-16">
-                    <div class="md:col-span-4">
-                        <div class="text-xs text-primary font-bold mb-4">03</div>
-                        <h3 class="text-5xl font-bold tracking-tighter mb-6">Development</h3>
+
+            </section>
+
+            <section class="section-dark p-0" aria-label="section">
+                <div class="bg-color text-light d-flex py-4 lh-1 rot-2 mt-min-50">
+                  <div class="de-marquee-list-1">
+                    <span class="fs-60 mx-3">Seo Strategy</span>
+                    <span class="fs-60 mx-3 op-3">/</span>
+                    <span class="fs-60 mx-3">Link Building</span>
+                     <span class="fs-60 mx-3 op-3">/</span>
+                    <span class="fs-60 mx-3">Technical &amp; Audits</span>
+                     <span class="fs-60 mx-3 op-3">/</span>
+                    <span class="fs-60 mx-3">Website Design</span>
+                     <span class="fs-60 mx-3 op-3">/</span>
+                    <span class="fs-60 mx-3">Content Marketing</span>
+                     <span class="fs-60 mx-3 op-3">/</span>
+                    <span class="fs-60 mx-3">PPC &amp; Paid Media</span>
+                     <span class="fs-60 mx-3 op-3">/</span>
+                  </div>
+                </div>
+
+                <div class="bg-color-2 text-light d-flex py-4 lh-1 rot-min-1 mt-min-20">
+                  <div class="de-marquee-list-2">
+                    <span class="fs-60 mx-3">Seo Strategy</span>
+                    <span class="fs-60 mx-3 op-3">/</span>
+                    <span class="fs-60 mx-3">Link Building</span>
+                     <span class="fs-60 mx-3 op-3">/</span>
+                    <span class="fs-60 mx-3">Technical &amp; Audits</span>
+                     <span class="fs-60 mx-3 op-3">/</span>
+                    <span class="fs-60 mx-3">Website Design</span>
+                     <span class="fs-60 mx-3 op-3">/</span>
+                    <span class="fs-60 mx-3">Content Marketing</span>
+                     <span class="fs-60 mx-3 op-3">/</span>
+                    <span class="fs-60 mx-3">PPC &amp; Paid Media</span>
+                     <span class="fs-60 mx-3 op-3">/</span>
+                  </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="container">
+                    <div class="row g-4">
+                        <div class="col-lg-5">
+                            <div class="subtitle wow fadeInUp">Our Services</div>
+                            <h2 class="mb-0 wow fadeInUp">Grow Traffic &amp; Increase Revenue</h2>
+                        </div>
+                        <div class="col-lg-4 offset-lg-3">
+                            <div class="spacer-single"></div>
+                            <p class="wow fadeInUp">We stay ahead with the latest SEO trends, tools, and best practices to ensure your business remains competitive in the ever-changing digital landscape.</p>
+                        </div>
                     </div>
-                    <div class="md:col-span-5 relative h-64 bg-bg-card rounded-2xl overflow-hidden">
-                        <img class="w-full h-full object-cover opacity-50 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0xZY8IS8BXijfZgDucslQ_f3x5qaaUFIIv2sytsWe07A6QHsCuaRbeeue9kvCzuBa4Hl2njoVU5btusF1YQ5UKtEMqM3XcuEA9TNDuqqM9lJoY6f779wAteIZuRC4n7yagu_w-Xhcfcc8amzfPaI_wfcH723NKmxpbELeDGCWNyMyiNxbKzD8Un99aHjhyn38JzGujDXr0UHBWHY4sMc-QREdsUJyMx5xP2XfkylGmJJIDqku8O7lT7hzB-MwtdFiRcoYg9jo3Vk" />
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <div
-                                class="w-16 h-16 bg-primary rounded-full flex items-center justify-center cursor-pointer">
-                                <span class="material-symbols-outlined text-black font-bold">north_east</span>
+
+                    <div class="spacer-single"></div>
+
+                    <div class="row g-4">
+                        <div class="col-lg-4 wow fadeInRight" data-wow-delay=".2s">
+                            <div class="bg-color-op-2 relative h-100 p-40 rounded-1">
+                                <img src="images/icons/white/search.png" class="w-90px bg-color text-light p-3 rounded-10px fs-56 mb-4" alt="">
+                                <h3>Keyword Research</h3>
+                                <p>Discover high-impact keywords your target audience is searching for. This process helps align your content and SEO strategy to improve visibility and attract qualified traffic.</p>
+                                <a class="btn-plus" href="service-single.html">
+                                    <i class="fa fa-plus"></i>
+                                    <span>Read more</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 wow fadeInRight" data-wow-delay=".4s">
+                            <div class="bg-color-2-op-2 relative h-100 p-40 rounded-1">
+                                <img src="images/icons/white/network.png" class="w-90px bg-color-2 text-light p-3 rounded-10px fs-56 mb-4" alt="">
+                                <h3>On-Page SEO</h3>
+                                <p>Optimize website elements like titles, meta descriptions, headers, images, and URLs to improve relevance and user experience for both search engines and visitors.</p>
+                                <a class="btn-plus" href="service-single.html">
+                                    <i class="fa fa-plus"></i>
+                                    <span>Read more</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 wow fadeInRight" data-wow-delay=".6s">
+                            <div class="bg-color-3-op-2 relative h-100 p-40 rounded-1">
+                                <img src="images/icons/white/chart.png" class="w-90px bg-color-3 text-light p-3 rounded-10px fs-56 mb-4" alt="">
+                                <h3>Off-Page SEO</h3>
+                                <p>Build domain authority through external efforts like backlink acquisition, digital PR, and brand mentions to boost your rankings and trust in search engines.</p>
+                                <a class="btn-plus" href="service-single.html">
+                                    <i class="fa fa-plus"></i>
+                                    <span>Read more</span>
+                                </a>
                             </div>
                         </div>
                     </div>
-                    <div class="md:col-span-3">
-                        <ul class="space-y-3 text-xs uppercase tracking-widest text-text-muted font-bold">
-                            <li>• Web Development</li>
-                            <li>• Cloud Architecture</li>
-                            <li>• API Integration</li>
-                            <li>• AI Implementation</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="py-32 bg-bg-deep relative overflow-hidden fade-in-section" id="how-we-work">
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="text-center mb-24">
-                <p class="text-primary text-xs font-bold uppercase tracking-widest mb-4">• How We Work</p>
-                <h2 class="text-5xl md:text-6xl font-bold tracking-tighter mb-6">Our Process</h2>
-                <p class="text-text-muted max-w-xl mx-auto">A streamlined approach to delivering excellence, from
-                    concept to deployment.</p>
-            </div>
-            <div class="grid md:grid-cols-4 gap-8">
-                <!-- Step 1 -->
-                <div
-                    class="bg-bg-card p-10 rounded-3xl border border-white/5 hover:border-primary/50 transition-colors duration-300 group">
-                    <div
-                        class="w-14 h-14 bg-white/5 rounded-full flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-black transition-colors">
-                        <span class="material-symbols-outlined">search</span>
-                    </div>
-                    <h4 class="text-xl font-bold mb-4">Discovery</h4>
-                    <p class="text-sm text-text-muted leading-relaxed">We dive deep into your business goals, target
-                        audience, and market landscape.</p>
-                </div>
-                <!-- Step 2 -->
-                <div
-                    class="bg-bg-card p-10 rounded-3xl border border-white/5 hover:border-primary/50 transition-colors duration-300 group">
-                    <div
-                        class="w-14 h-14 bg-white/5 rounded-full flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-black transition-colors">
-                        <span class="material-symbols-outlined">design_services</span>
-                    </div>
-                    <h4 class="text-xl font-bold mb-4">Strategy & Design</h4>
-                    <p class="text-sm text-text-muted leading-relaxed">Crafting a bespoke roadmap and visual identity
-                        that aligns with your vision.</p>
-                </div>
-                <!-- Step 3 -->
-                <div
-                    class="bg-bg-card p-10 rounded-3xl border border-white/5 hover:border-primary/50 transition-colors duration-300 group">
-                    <div
-                        class="w-14 h-14 bg-white/5 rounded-full flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-black transition-colors">
-                        <span class="material-symbols-outlined">code</span>
-                    </div>
-                    <h4 class="text-xl font-bold mb-4">Development</h4>
-                    <p class="text-sm text-text-muted leading-relaxed">Bringing designs to life with clean, scalable,
-                        and high-performance code.</p>
-                </div>
-                <!-- Step 4 -->
-                <div
-                    class="bg-bg-card p-10 rounded-3xl border border-white/5 hover:border-primary/50 transition-colors duration-300 group">
-                    <div
-                        class="w-14 h-14 bg-white/5 rounded-full flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-black transition-colors">
-                        <span class="material-symbols-outlined">rocket_launch</span>
-                    </div>
-                    <h4 class="text-xl font-bold mb-4">Launch & Growth</h4>
-                    <p class="text-sm text-text-muted leading-relaxed">Deploying your solution and optimizing for
-                        continuous growth and impact.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="py-32 bg-white text-black rounded-t-[4rem]" id="portfolio">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex justify-between items-end mb-16">
-                <div>
-                    <p class="text-black/50 text-xs font-bold uppercase tracking-widest mb-4">• Case Studies</p>
-                    <h2 class="text-5xl font-bold tracking-tighter">See Our Latest Works</h2>
-                </div>
-                <a class="bg-black text-white px-8 py-3 rounded-full flex items-center space-x-2 text-xs font-bold uppercase tracking-widest hover:bg-black/90 transition-all"
-                    href="#">
-                    <span>View All</span>
-                    <span class="material-symbols-outlined text-sm">north_east</span>
-                </a>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="space-y-6">
-                    <div class="rounded-3xl overflow-hidden bg-gray-100 aspect-video group relative">
-                        <img alt="Project"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxlR82byT8FrmmMgg3O2HM_DNrTMn3d63-2qaLo2Ls5otA992OcMCrz0WyPTGKKEoEq2xWDlf81w_a9Q4U73uqhkV9oRPXYb1FYCARlId5pM_0cCXbGRJWR7R-phyP5i7mUtKyY-ujANpDqfT2GdqMcM_QoEqzN_Uq9G6UG_y7wpGClKyfnHNqgGHM19j_a0TzjACWkunc9soasWvLRUjUel94Ur1SewgoB8hSx__vbsCKzMfng6gHyD4fD79ELKqpE8H1iXY169E" />
-                        <div class="absolute bottom-6 right-6">
-                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-                                <span class="material-symbols-outlined text-black font-bold">north_east</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Branding, Digital
-                            </p>
-                            <h4 class="text-2xl font-bold tracking-tight mt-1">Global Fintech Platform</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="space-y-6 mt-12 md:mt-24">
-                    <div class="rounded-3xl overflow-hidden bg-gray-100 aspect-video group relative">
-                        <img alt="Project"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3_8LiwwAoSt_wMFAH8peeRKOj31Nopi2uuxoZUqgIRL13UY1eIqhMpPM3Ljg-Lo4JIqNIx3o0191dMlQKo8cwcKjOCYQzHmcnV3AAropQhrW4wFPWDyV9VFQne3voLaHUOCdYmqHimgynYgcnx5lGpk4lnt7hghfnIlVeht9-05XxkEr5QUWrd4l_721fmbS5AhL9LPPDkgCQ9wUxPCrTyhL_PUtc6my6J53sHCiRQkcbv2AJCFMpR_dd5erl8ryqrLiC61hGUo8" />
-                        <div class="absolute bottom-6 right-6">
-                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-                                <span class="material-symbols-outlined text-black font-bold">north_east</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Web Design</p>
-                            <h4 class="text-2xl font-bold tracking-tight mt-1">Enterprise Analytics</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="py-32" id="leadership">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-20">
-                <div>
-                    <p class="text-primary text-xs font-bold uppercase tracking-widest mb-4">• Leadership</p>
-                    <h2 class="text-5xl md:text-6xl font-bold tracking-tighter mb-8">Meet the — Leadership</h2>
-                    <p class="text-text-muted mb-12 max-w-sm">Our team consists of industry veterans committed to
-                        pushing the boundaries of digital excellence for our corporate partners.</p>
-                </div>
-                <div class="space-y-16">
-                    <div class="flex items-center space-x-8">
-                        <div class="flex-grow">
-                            <h4 class="text-2xl font-bold tracking-tight">Momu</h4>
-                            <p class="text-primary text-xs font-bold uppercase tracking-widest mb-4">Project Director
-                            </p>
-                            <p class="text-xs text-text-muted leading-relaxed max-w-xs">Experienced strategist with over
-                                15 years in corporate digital transformation.</p>
-                        </div>
-                        <div class="w-32 h-32 bg-white/5 flower-frame shrink-0">
-                            <img alt="Marcus" class="w-full h-full object-cover grayscale"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs54QXX3i0_hA_U0dheU_fM-QY6yrB6THBFa4R4rQT8qNi5dV0Oblw9TyDBkFs4LMy_q4n6j9y7w4cYGHdgjs2Xt7gYCMuGSmvcqHMyhnH8xfzhguuEQTObUYfhCOGNMOhP5Ra1w_9sOLihRyW-da7j7baXueBVgafqYkUZbpllPyuK7J39R6QSqi2jbDwd_qAfOU3BgA7R3GcBAaFE5YakWO_mbT39-DvFcF2nV8GFbL3WeN-cpWvgUa2_P9PgkaX8j3OQsWn37k" />
-                        </div>
-                    </div>
-                    <div class="flex items-center space-x-8">
-                        <div class="flex-grow">
-                            <h4 class="text-2xl font-bold tracking-tight">AKM</h4>
-                            <p class="text-primary text-xs font-bold uppercase tracking-widest mb-4">Creative Head</p>
-                            <p class="text-xs text-text-muted leading-relaxed max-w-xs">Award-winning designer focusing
-                                on high-end visual experiences.</p>
-                        </div>
-                        <div class="w-32 h-32 bg-primary flower-frame shrink-0 flex items-center justify-center">
-                            <img alt="Elena" class="w-full h-full object-cover grayscale"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7NpmVyPJPcqRsO8Zt2kHbfWD5_-0eSLKHmNVBpJrD7HIXyMJ-Zh811ETXjeOS29seqlE_K_H9a3LmTZ_yIDRbul8JaIZ6x6AzVS14Yi1xkaSvqCeOz3-86EQxqeSCmgqb6KlrkEzqerIcwnRzqXNDwv0nUImA1yMYQe4_r-LMS5P4NQtAIscUt9x4-DaldlmRb__5sHxHAJrRCg3XKqzGiqFj7WRdeZUuGaOQ7I0xGh-SlWOaHxHqitRti319zmVh7Nlfk6NTPkM" />
-                        </div>
-                    </div>
-                    <div class="flex items-center space-x-8">
-                        <div class="flex-grow">
-                            <h4 class="text-2xl font-bold tracking-tight">David</h4>
-                            <p class="text-primary text-xs font-bold uppercase tracking-widest mb-4">Tech Lead</p>
-                            <p class="text-xs text-text-muted leading-relaxed max-w-xs">Innovator in cloud architecture
-                                and enterprise-grade software systems.</p>
-                        </div>
-                        <div class="w-32 h-32 bg-white/5 flower-frame shrink-0">
-                            <img alt="David" class="w-full h-full object-cover grayscale"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrofTn5MtRLkRCtfhut3--T9Hy-_G4gjn-UudSUW5g6KlBrZxqdCSQgn2iJ-UD-3yzHvhS3e4goxnqANdrpbQsXGurhr5b1cITPfX544w_1teYsTMAYIvOEMAj2HpXzuQFfLrvCANmiqLO1w5FhMxmnRFtKnvZQolHsiFunKg9LUXopApvLMvrolHneeDCsm3rNZ2NlFmYfYb-w4-zhgscnM37gDoEOjtamIbwTUO8QUGU0EC_pQk-_QFwfbeTPc54tRF1KFAJ5CA" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Blog Section -->
-    <section class="py-32 bg-black fade-in-section" id="blog">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-                <div>
-                    <p class="text-primary text-xs font-bold uppercase tracking-widest mb-4">• Our Insights</p>
-                    <h2 class="text-5xl font-bold tracking-tighter mb-4">Latest from Blog</h2>
-                    <p class="text-text-muted max-w-sm">Trends, strategies, and insights from the digital world.</p>
                 </div>
-                <!-- Search and Filter Controls -->
-                <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-                    <div class="relative">
-                        <span
-                            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-white/40 text-sm">search</span>
-                        <input type="text" id="searchInput" placeholder="Search insights..."
-                            class="bg-white/5 border border-white/10 rounded-full pl-10 pr-6 py-3 text-sm focus:ring-1 focus:ring-primary focus:border-primary placeholder-white/30 w-full sm:w-64 transition-all">
-                    </div>
-                    <select id="sortSelect"
-                        class="bg-white/5 border border-white/10 rounded-full px-6 py-3 text-sm focus:ring-1 focus:ring-primary focus:border-primary cursor-pointer w-full sm:w-auto">
-                        <option value="newest">Newest First</option>
-                        <option value="oldest">Oldest First</option>
-                    </select>
-                </div>
-            </div>
+            </section>
 
-            <!-- Tags Filter (Removed as requested) -->
-            <!-- <div class="flex flex-wrap gap-2 mb-12" id="tagsContainer"></div> -->
+            <section class="bg-color-2-op-1 overflow-hidden rounded-1 mx-4">
+                <div class="container relative z-2">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-lg-6">
+                            <div class="subtitle wow fadeInUp">About Us</div>
+                            <h2 class="wow fadeInUp">Elevate Your Brand’s Online Presence with Expert SEO for Sustainable Growth</h2>
 
-            <!-- Blog Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="blogGrid">
-                <!-- Loading State -->
-                <div class="col-span-full h-64 flex items-center justify-center">
-                    <div class="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary"></div>
-                </div>
-            </div>
-
-            <!-- Pagination -->
-            <div class="mt-16 flex justify-center gap-4" id="paginationControls">
-                <!-- Injected via JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Form Section -->
-    <section class="py-32 bg-bg-card border-t border-white/5 relative fade-in-section" id="contact">
-        <div class="max-w-3xl mx-auto px-6 relative z-10">
-            <div class="text-center mb-16">
-                <p class="text-primary text-xs font-bold uppercase tracking-widest mb-4">• Contact Us</p>
-                <h2 class="text-5xl font-bold tracking-tighter mb-6">Start Your Project</h2>
-                <p class="text-text-muted">Ready to transform your digital presence? Fill out the form below and we'll
-                    get back to you shortly.</p>
-            </div>
-
-            <div class="grid lg:grid-cols-12 gap-12">
-                <!-- Contact Info Cards -->
-                <div class="lg:col-span-5 space-y-6">
-                    <div
-                        class="bg-bg-card p-8 rounded-3xl border border-white/5 hover:border-primary/30 transition-all group tilt-card">
-                        <div
-                            class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-black transition-colors tilt-content">
-                            <i class="fa-brands fa-whatsapp text-xl"></i>
-                        </div>
-                        <h4 class="text-xl font-bold mb-2 tilt-content">Chat on WhatsApp</h4>
-                        <p class="text-text-muted text-sm mb-6 tilt-content">Direct access to our support team.</p>
-                        <a href="https://wa.link/zufcl4" target="_blank"
-                            class="inline-flex items-center gap-2 text-primary font-bold uppercase text-xs tracking-widest hover:underline tilt-content">
-                            Message Us <span class="material-symbols-outlined text-sm">north_east</span>
-                        </a>
-                    </div>
-
-                    <div
-                        class="bg-bg-card p-8 rounded-3xl border border-white/5 hover:border-primary/30 transition-all group tilt-card">
-                        <div
-                            class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-black transition-colors tilt-content">
-                            <i class="fa-regular fa-envelope text-xl"></i>
-                        </div>
-                        <h4 class="text-xl font-bold mb-2 tilt-content">Email Us</h4>
-                        <p class="text-text-muted text-sm mb-6 tilt-content">Waveclickinfo@gmail.com</p>
-                        <a href="mailto:Waveclickinfo@gmail.com"
-                            class="inline-flex items-center gap-2 text-primary font-bold uppercase text-xs tracking-widest hover:underline tilt-content">
-                            Send Email <span class="material-symbols-outlined text-sm">north_east</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Form -->
-                <div class="lg:col-span-7">
-                    <form id="contactForm" class="space-y-6 bg-bg-card p-8 md:p-10 rounded-3xl border border-white/5">
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div class="space-y-2">
-                                <label
-                                    class="text-xs font-bold uppercase tracking-widest text-text-muted ml-1">Name</label>
-                                <input type="text" id="formName" required
-                                    class="w-full bg-bg-deep border border-white/10 rounded-2xl px-6 py-4 focus:ring-1 focus:ring-primary focus:border-primary transition-all placeholder-white/20"
-                                    placeholder="John Doe">
-                            </div>
-                            <div class="space-y-2">
-                                <label
-                                    class="text-xs font-bold uppercase tracking-widest text-text-muted ml-1">Email</label>
-                                <input type="email" id="formEmail" required
-                                    class="w-full bg-bg-deep border border-white/10 rounded-2xl px-6 py-4 focus:ring-1 focus:ring-primary focus:border-primary transition-all placeholder-white/20"
-                                    placeholder="john@example.com">
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <label
-                                class="text-xs font-bold uppercase tracking-widest text-text-muted ml-1">Subject</label>
-                            <input type="text" id="formSubject" required
-                                class="w-full bg-bg-deep border border-white/10 rounded-2xl px-6 py-4 focus:ring-1 focus:ring-primary focus:border-primary transition-all placeholder-white/20"
-                                placeholder="Project Inquiry">
-                        </div>
-                        <div class="space-y-2">
-                            <label
-                                class="text-xs font-bold uppercase tracking-widest text-text-muted ml-1">Message</label>
-                            <textarea id="formMessage" required rows="5"
-                                class="w-full bg-bg-deep border border-white/10 rounded-2xl px-6 py-4 focus:ring-1 focus:ring-primary focus:border-primary transition-all placeholder-white/20"
-                                placeholder="Tell us about your project..."></textarea>
-                        </div>
-                        <button type="submit"
-                            class="w-full bg-primary text-black font-bold uppercase tracking-widest py-5 rounded-full hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-lg shadow-primary/20">
-                            Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-    <footer class="bg-bg-card pt-32 pb-12 border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-32">
-                <h2 class="text-7xl md:text-9xl font-bold tracking-tighter mb-12">Get In Touch. <br><span
-                        class="text-primary">+91 90320 65784</span></h2>
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-                    <div class="flex space-x-4">
-                        <a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-black transition-colors"
-                            href="#">
-                            <span class="material-symbols-outlined text-sm">public</span>
-                        </a>
-                        <a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-black transition-colors"
-                            href="#">
-                            <span class="material-symbols-outlined text-sm">chat</span>
-                        </a>
-                    </div>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-sm">
-                        <div class="space-y-4">
-                            <h5 class="font-bold text-xs uppercase tracking-widest text-text-muted">Services</h5>
-                            <ul class="space-y-2 text-white/60">
-                                <li><a class="hover:text-primary transition-colors" href="#">Web Design</a></li>
-                                <li><a class="hover:text-primary transition-colors" href="#">Development</a></li>
-                                <li><a class="hover:text-primary transition-colors" href="#">Strategy</a></li>
+                            <ul class="ul-check">
+                                <li class="wow fadeInUp" data-wow-delay=".2s">We have specialized knowledge and experience in optimizing websites.</li>
+                                <li class="wow fadeInUp" data-wow-delay=".4s">As reputable SEO agency, we can help improve a website’s rankings</li>
+                                <li class="wow fadeInUp" data-wow-delay=".6s">We have access to professional tools for research, analytics and more.</li>
                             </ul>
                         </div>
-                        <div class="space-y-4">
-                            <h5 class="font-bold text-xs uppercase tracking-widest text-text-muted">Company</h5>
-                            <ul class="space-y-2 text-white/60">
-                                <li><a class="hover:text-primary transition-colors" href="#">About</a></li>
-                                <li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
-                                <li><a class="hover:text-primary transition-colors" href="#">News</a></li>
-                            </ul>
+
+                        <div class="col-lg-6">
+                            <img src="images/misc/c5.webp" class="w-100" alt="" data-0="transform: translateY(500px);" data-1500="transform: translateY(0px);">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="container">
+                    <div class="row g-4 gx-5">
+                        <div class="col-lg-4">
+                            <div class="subtitle wow fadeInUp mb-3">Why Choose Us</div>
+                        <h2 class="wow fadeInUp">Boost Your Online Visibility</h2>
+                        <div class="relative">
+                            <a href="request.html" class="btn-main fx-slide btn-light-trans"><span>Get Free Proposal</span></a>
+                            <img src="images/misc/arrow-black.webp" class="absolute w-50 end-0 top-0 sm-hide anim-left-right" alt="">
+                        </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <h4 class="mb-4 wow fadeInRight">Why choose us</h4>
+                            <ol class="ol-style-1">
+                                <li class="wow fadeInUp" data-wow-delay=".2s">We have specialized knowledge and experience in optimizing websites.</li>
+                                <li class="wow fadeInUp" data-wow-delay=".4s">We have access to professional tools for research, analytics and more.</li>
+                                <li class="wow fadeInUp" data-wow-delay=".6s">As reputable SEO agency, we can help improve a website’s rankings</li>
+                            </ol>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <h4 class="mb-4 wow fadeInRight">Benefits for you</h4>
+                            <ol class="ol-style-1 color-2">
+                                <li class="wow fadeInUp" data-wow-delay=".2s">Attracts more targeted traffic by optimizing your keywords.</li>
+                                <li class="wow fadeInUp" data-wow-delay=".4s">Increase visit, lower bounce rates, and higher customer satisfaction.</li>
+                                <li class="wow fadeInUp" data-wow-delay=".6s">Higher search engine rankings can enhance your brand’s credibility.</li>
+                            </ol>
+                        </div>
+
+                        <div class="spacer-half"></div>
+
+                        <div class="col-lg-12">
+                            <div class="row g-4 gx-lg-5 align-items-center">
+                                <div class="col-md-3 col-6 wow scaleIn" data-wow-delay=".0s">
+                                    <div class="text-center">
+                                        <img src="images/partners/google-partner.webp" class="w-50" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6 wow scaleIn" data-wow-delay=".2s">
+                                    <div class="text-center">
+                                        <img src="images/partners/meta-business-partner.webp" class="w-50" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6 wow scaleIn" data-wow-delay=".4s">
+                                    <div class="text-center">
+                                        <img src="images/partners/hubspot-certified-partner.webp" class="w-50" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6 wow scaleIn" data-wow-delay=".6s">
+                                    <div class="text-center">
+                                        <img src="images/partners/tiktok-marketing-partners.webp" class="w-50" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+             <section class="bg-color-3-op-1 relative overflow-hidden rounded-1 mx-4">
+                 <div class="container">
+                     <div class="row g-4 align-items-center">
+                         <div class="col-lg-8">
+                             <div class="owl-carousel owl-single-dots">
+                                 <div class="ps-lg-5 ps-0">
+                                     <i class="icofont-quote-left id-color-2 fs-40 mb-4 wow fadeInUp"></i>
+                                     <h3 class="fs-28 mb-4 wow fadeInUp">Exceptional Results! Our website's traffic has soared since partnering with Seoly. Their SEO services are unparalleled, delivering tangible growth and increased visibility. Highly recommended!</h3>
+                                     <span class="wow fadeInUp">Emily Grace Johnson, Business Owner</span>
+                                 </div>
+
+                                 <div class="pe-lg-5 pe-0">
+                                     <i class="icofont-quote-left id-color-2 fs-40 mb-4 wow fadeInUp"></i>
+                                     <h3 class="fs-28 mb-4 wow fadeInUp">Impressive Performance! We've seen a remarkable increase in organic traffic since engaging Seoly for SEO services. Their team's dedication and strategic approach have exceeded our expectations.</h3>
+                                     <span class="wow fadeInUp">Fredric Helweg, Marketing Director</span>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <div class="col-lg-4">
+                             <div class="relative text-center">
+                                 <div class="d-inline-block text-center m-4 wow fadeInRight" data-wow-delay=".2s">
+                                     <h4 class="fw-bold mb-1 fs-24">Excellent</h4>
+                                     <div class="de-rating-ext fs-18">
+                                         <span class="d-stars">
+                                             <i class="fa fa-star"></i>
+                                             <i class="fa fa-star"></i>
+                                             <i class="fa fa-star"></i>
+                                             <i class="fa fa-star"></i>
+                                             <i class="fa fa-star"></i>
+                                         </span>
+                                         <div class="fs-14 mb-0">Based on <span class="fw-bold">185 reviews</span></div>
+                                         <img src="images/misc/trustpilot-invert.webp" class="w-100px" alt="">
+                                     </div>
+                                 </div>
+
+                                 <div class="d-inline-block text-center m-4 wow fadeInRight" data-wow-delay=".4s">
+                                     <h4 class="fw-bold mb-1 fs-24">4.8 out of 5</h4>
+                                     <div class="de-rating-ext fs-18">
+                                         <span class="d-stars">
+                                             <i class="fa fa-star"></i>
+                                             <i class="fa fa-star"></i>
+                                             <i class="fa fa-star"></i>
+                                             <i class="fa fa-star"></i>
+                                             <i class="fa fa-star"></i>
+                                         </span>
+                                         <div class="fs-14 mb-0">Based on <span class="fw-bold">200 reviews</span></div>
+                                         <img src="images/misc/google.webp" class="w-100px" alt="">
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     
+                 </div>
+             </section>
+
+             <section>
+                 <div class="container">
+                     <div class="row g-4 mb-2 justify-content-center">
+                         <div class="col-lg-6 text-center">
+                             <div class="subtitle s2 mb-3 wow fadeInUp" data-wow-delay=".0s">Pricing</div>
+                             <h2 class="wow fadeInUp" data-wow-delay=".2s">SEO Plans for Every Business</h2>
+                             <p class="lead mt-2 wow fadeInUp" data-wow-delay=".3s">Choose a plan that fits your goals, whether you're just starting out or scaling your digital presence.</p>
+                         </div>
+                     </div>
+
+                     <div class="row g-4">
+                         <!-- Free Trial Plan -->
+                         <div class="col-lg-4 wow fadeInRight" data-wow-delay=".2s">
+                             <div class="bg-color text-light text-center p-30 rounded-1">
+                                 <h3>Free Trial</h3>
+                                 <div class="spacer-single"></div>
+                                 <img src="images/icons/search.png" class="w-100px" alt="SEO Free Trial Icon">
+                                 <div class="spacer-single"></div>
+                                 <h2 class="mb-2">Free</h2>
+                                 <p>Test-drive our SEO tools and services — no commitment, just results.</p>
+                                 <a class="btn-main fx-slide btn-dark-trans w-100 mb-4" href="#"><span>Start Free</span></a>
+                                 <div class="text-start">
+                                     <ul class="ul-check white">
+                                         <li>Basic SEO Audit</li>
+                                         <li>Keyword Suggestions</li>
+                                         <li>Performance Snapshot</li>
+                                         <li>1 Website Review</li>
+                                         <li>Email Support</li>
+                                         <li>Limited Insights</li>
+                                     </ul>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <!-- Business Plan -->
+                         <div class="col-lg-4 wow fadeInRight" data-wow-delay=".4s">
+                             <div class="bg-color-2 text-light text-center p-30 rounded-1">
+                                 <h3>Business</h3>
+                                 <div class="spacer-single"></div>
+                                 <img src="images/icons/chart.png" class="w-100px" alt="SEO Business Plan Icon">
+                                 <div class="spacer-single"></div>
+                                 <h2 class="mb-2">$119.99</h2>
+                                 <p>Perfect for small to medium businesses looking to boost visibility and drive traffic.</p>
+                                 <a class="btn-main fx-slide btn-dark-trans w-100 mb-4" href="#"><span>Get Started</span></a>
+                                 <div class="text-start">
+                                     <ul class="ul-check white">
+                                         <li>Full SEO Strategy</li>
+                                         <li>Monthly Link Building</li>
+                                         <li>On-Page & Technical SEO</li>
+                                         <li>Conversion-Focused Web Design</li>
+                                         <li>Blog Content Creation</li>
+                                         <li>Monthly Reporting</li>
+                                     </ul>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <!-- Ultimate Plan -->
+                         <div class="col-lg-4 wow fadeInRight" data-wow-delay=".6s">
+                             <div class="bg-color-3 text-light text-center p-30 rounded-1">
+                                 <h3>Ultimate</h3>
+                                 <div class="spacer-single"></div>
+                                 <img src="images/icons/startup.png" class="w-100px" alt="SEO Ultimate Plan Icon">
+                                 <div class="spacer-single"></div>
+                                 <h2 class="mb-2">$159.99</h2>
+                                 <p>All-in-one SEO powerhouse — ideal for fast-growing brands and online businesses.</p>
+                                 <a class="btn-main fx-slide btn-dark-trans w-100 mb-4" href="#"><span>Get Started</span></a>
+                                 <div class="text-start">
+                                     <ul class="ul-check white">
+                                         <li>Advanced SEO Strategy</li>
+                                         <li>High Authority Link Building</li>
+                                         <li>Technical Optimization & Site Speed</li>
+                                         <li>Custom Website Design</li>
+                                         <li>Premium Blog & Copywriting</li>
+                                         <li>PPC & Retargeting Ads</li>
+                                     </ul>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </section>
+
+
+             <section class="bg-color-op-1 rounded-1 mx-4">
+                  <div class="container">
+                      <div class="row align-items-center g-4">
+                          <div class="col-lg-8">                            
+                              <div class="subtitle wow fadeInUp">Do you have</div>
+                              <h2 class="wow fadeInUp" data-wow-delay=".2s">Any questions?</h2>
+                          </div>
+                          <div class="col-lg-4 text-lg-end">
+                              <a class="btn-text text-dark wow fadeInLeft" href="#">More questions</a>
+                          </div>
+                      </div>
+
+                      <div class="row g-custom-4">
+                          <div class="col-lg-6 wow fadeInUp">
+                              <div class="accordion secondary">
+                                  <div class="accordion-section">
+                                      <div class="accordion-section-title" data-tab="#accordion-1">
+                                          What is SEO and why is it important?
+                                      </div>
+                                      <div class="accordion-section-content" id="accordion-1">
+                                          <p>SEO, or Search Engine Optimization, is the process of improving your website's visibility on search engine results pages (SERPs) to drive organic (non-paid) traffic. It involves optimizing various aspects of your website and content to rank higher in search engine rankings. SEO is important because it helps increase your website's visibility, attract more qualified traffic, and improve your chances of converting visitors into customers.</p>
+                                      </div>
+                                      <div class="accordion-section-title" data-tab="#accordion-2">
+                                          How long does it take to see results from SEO efforts?
+                                      </div>
+                                      <div class="accordion-section-content" id="accordion-2">
+                                          <p>The timeline for seeing results from SEO efforts can vary depending on factors such as the competitiveness of your industry, the current state of your website, and the strategies implemented. Generally, significant improvements in search engine rankings and organic traffic can be observed within a few months of implementing SEO strategies, but it's important to understand that SEO is an ongoing process that requires patience and consistent effort.</p>
+                                      </div>
+                                      <div class="accordion-section-title" data-tab="#accordion-3">
+                                           What SEO services do you offer?
+                                      </div>
+                                      <div class="accordion-section-content" id="accordion-3">
+                                          <p>We offer a comprehensive range of SEO services including website audit and analysis, keyword research, on-page optimization, off-page optimization (link building), content creation and optimization, local SEO, technical SEO, and ongoing monitoring and maintenance.</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          
+                          <div class="col-lg-6 wow fadeInUp">
+                              <div class="accordion secondary">
+                                  <div class="accordion-section">
+                                      <div class="accordion-section-title" data-tab="#accordion-b-4">
+                                          Can you guarantee top rankings on search engines?                                        
+                                      </div>
+                                      <div class="accordion-section-content" id="accordion-b-4">
+                                          <p>While we cannot guarantee specific rankings on search engines, we can guarantee our commitment to implementing ethical and effective SEO strategies that align with best practices and guidelines set forth by search engines like Google. Our goal is to improve your website's visibility and performance over time, which can lead to higher rankings and increased organic traffic.</p>
+                                      </div>
+                                      <div class="accordion-section-title" data-tab="#accordion-b-5">
+                                          How do you choose right SEO strategy for my business?
+                                      </div>
+                                      <div class="accordion-section-content" id="accordion-b-5">
+                                          <p>We start by conducting a thorough analysis of your website, industry, target audience, and competitors. Based on this research, we develop a customized SEO strategy tailored to your specific goals and objectives. We also take into account your budget, timeline, and any unique challenges or opportunities that may exist.</p>
+                                      </div>
+                                      <div class="accordion-section-title" data-tab="#accordion-b-6">
+                                          What kind of reporting can I expect to receive?
+                                      </div>
+                                      <div class="accordion-section-content" id="accordion-b-6">
+                                          <p>We provide detailed and transparent reporting that includes metrics such as keyword rankings, organic traffic, website performance, and conversion tracking. Our reports are customized to your specific needs and preferences, and we are always available to provide further explanation or clarification as needed.</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </section>
+
+             <section>
+                 <div class="container">
+                     <div class="row g-4 justify-content-center">
+                         <div class="col-lg-6">
+                             <div class="text-center">
+                                 <div class="subtitle">Free Consultation</div>
+                                 <h2 class="wow fadeInUp">Get In Touch With Us Today</h2>
+                                 <p class="lead col-lg-10 offset-lg-1">Have a question, suggestion, or just want to say hi? We’re here and happy to hear from you!</p>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="row g-4 gx-5 justify-content-center">
+                        <div class="col-lg-4">
+                            <div class="h-100 bg-color-2 text-light p-40 rounded-1">
+                                
+                                <div class="relative mb-4">
+                                    <i class="abs fs-32 p-3 bg-white rounded-1 icofont-location-pin id-color-2"></i>
+                                    <div class="ms-80px">
+                                        <div class="fw-bold text-white">Office Location</div>
+                                        100 S Main St, New York, NY
+                                    </div>
+                                </div>
+
+                                <div class="relative mb-4">
+                                    <i class="abs fs-32 p-3 bg-white rounded-1 icofont-envelope id-color-2"></i>
+                                    <div class="ms-80px">
+                                        <div class="fw-bold text-white">Send a Message</div>
+                                        contact@seoly-agency.com
+                                    </div>
+                                </div>
+
+                                <div class="relative mb-4">
+                                    <i class="abs fs-32 p-3 bg-white rounded-1 icofont-phone id-color-2"></i>
+                                    <div class="ms-80px">
+                                        <div class="fw-bold text-white">Make a Phone Call</div>
+                                        +929 333 9296
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                         <div class="col-lg-7">
+                             <div class="p-4 bg-color-op-3 rounded-1">
+                                 <form name="contactForm" id="contact_form" method="post" action="#">
+                                     <div class="row g-4">
+                                         <div class="col-md-6">
+                                             <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
+                                         </div>
+
+                                         <div class="col-md-6">
+                                             <input type="text" name="email" id="email" class="form-control" placeholder="Your Email" required>
+                                         </div>
+
+                                         <div class="col-md-6">
+                                             <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone Number" required>
+                                         </div>
+
+                                         <div class="col-md-6">
+                                             <div class="relative">
+                                                 <select name="services" id="services" class="form-control">
+                                                     <option value="Keyword Research">Keyword Research</option>
+                                                     <option value="On-Page SEO">On-Page SEO</option>
+                                                     <option value="Off-Page SEO">Off-Page SEO</option>
+                                                     <option value="Technical SEO">Technical SEO</option>
+                                                     <option value="Local SEO">Local SEO</option>
+                                                     <option value="Content Marketing">Content Marketing</option>
+                                                 </select>
+                                                 <i class="absolute top-0 end-0 id-color pt-3 pe-3 icofont-simple-down"></i>
+                                             </div>
+                                         </div>                                
+
+                                         <div class="col-md-12">
+                                             <textarea name="message" id="message" class="form-control h-100px" placeholder="Message" required></textarea>
+                                         </div>
+
+                                         <div class="col-md-12">
+                                             <div class="text-center">
+                                                 <div id='submit'>
+                                                     <input type='submit' id='send_message' value='Send Message' class="btn-main">
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+
+                                     <div id="success_message" class='success'>
+                                         Your message has been sent successfully. Refresh this page if you want to send more messages.
+                                     </div>
+                                     <div id="error_message" class='error'>
+                                         Sorry there was an error sending your form.
+                                     </div>
+                                 </form>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </section>
+            
+        </div>
+        <!-- content close -->
+        
+        <!-- footer begin -->
+        <footer class="footer-light">
+            <div class="container">
+                <div class="row gx-5">
+                    <div class="col-lg-4 col-sm-6">
+                        <img src="images/logo.webp" alt="" >
+                        <div class="spacer-20"></div>
+                        <p>Unlock the full potential of your online presence with Seoly, where innovation meets optimization. In today's digital landscape, visibility is paramount, and our tailored SEO solutions are crafted to ensure your brand shines brightly amidst the competition.</p>
+
+                        <div class="social-icons mb-sm-30">
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 order-lg-1 order-sm-2">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="widget">
+                                    <h5>Company</h5>
+                                    <ul>                                        
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="services.html">Our Services</a></li>
+                                        <li><a href="case-studies.html">Case Studies</a></li>
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="widget">
+                                    <h5>Our Services</h5>
+                                    <ul>
+                                        <li><a href="services.html">Keyword Research</a></li>
+                                        <li><a href="services.html">On-Page SEO</a></li>
+                                        <li><a href="services.html">Off-Page SEO</a></li>
+                                        <li><a href="services.html">Technical SEO</a></li>
+                                        <li><a href="services.html">Local SEO</a></li>
+                                        <li><a href="services.html">Content Marketing</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 order-lg-2 order-sm-1">
+                        <div class="widget">
+                            <div class="fw-bold text-dark"><i class="icofont-location-pin me-2 id-color"></i>Office Location</div>
+                            100 S Main St, Los Angeles, CA
+
+                            <div class="spacer-20"></div>
+
+                            <div class="fw-bold text-dark"><i class="icofont-envelope me-2 id-color"></i>Send a Message</div>
+                            contact@seoly.com     
+
+                            <div class="spacer-20"></div>
+
+                            <div class="fw-bold text-dark"><i class="icofont-envelope me-2 id-color"></i>Make a Phone Call</div>
+                            +929 333 9296 / +929 333 9297                            
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-white/5 gap-6">
-                <div class="flex items-center space-x-3">
-                    <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-                        <span class="material-symbols-outlined text-black text-sm">waves</span>
+            <div class="subfooter">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="de-flex">
+                                <div class="de-flex-col">
+                                    Copyright 2025 - Seoly by Designesia
+                                </div>
+                                <ul class="menu-simple">
+                                    <li><a href="#">Terms &amp; Conditions</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <span class="text-lg font-bold tracking-tighter">Wave Click Info</span>
                 </div>
-                <div class="flex flex-col items-center gap-2">
-                    <p class="text-[10px] text-text-muted uppercase tracking-[0.3em]">© 2026 WAVE CLICK INFO. ALL RIGHTS
-                        RESERVED.</p>
-                    <p class="text-[10px] text-text-muted uppercase tracking-widest">
-                        Website powered by <a href="https://f9xr.github.io" target="_blank"
-                            class="text-primary hover:underline">F9XR Team</a>
-                    </p>
-                </div>
-                <div class="flex items-center space-x-6">
-                    <a href="#" class="text-text-muted hover:text-[#1877F2] transition-colors"><i
-                            class="fa-brands fa-facebook-f text-lg"></i></a>
-                    <a href="#" class="text-text-muted hover:text-[#E1306C] transition-colors"><i
-                            class="fa-brands fa-instagram text-lg"></i></a>
-                    <a href="#" class="text-text-muted hover:text-white transition-colors"><i
-                            class="fa-brands fa-x-twitter text-lg"></i></a>
-                </div>
+            </div>
+        </footer>
+        <!-- footer close -->
+    </div>
+
+    <!-- overlay content begin -->
+    <div id="extra-wrap">
+        <div id="btn-close">
+            <span></span>
+            <span></span>
+        </div>
+
+        <div id="extra-content">
+            <img src="images/logo.webp" class="w-150px" alt="">
+
+            <div class="spacer-30-line"></div>
+
+            <h5 class="mb-3">Our Services</h5>
+            
+            <ul class="ul-check">
+                <li><a href="services.html">Keyword Research</a></li>
+                <li><a href="services.html">On-Page SEO</a></li>
+                <li><a href="services.html">Off-Page SEO</a></li>
+                <li><a href="services.html">Technical SEO</a></li>
+                <li><a href="services.html">Local SEO</a></li>
+                <li><a href="services.html">Content Marketing</a></li>
+            </ul>
+
+
+            <div class="spacer-30-line"></div>
+
+            <h5>Contact Us</h5>
+            <div><i class="icofont-clock-time me-2"></i>Monday - Saturday 08.00 - 18.00</div>
+            <div><i class="icofont-location-pin me-2"></i>100 S Main St, New York, </div>
+            <div><i class="icofont-envelope me-2"></i>contact@seoly-agency.com</div>    
+
+            <div class="spacer-30-line"></div>
+
+            <h5>About Us</h5>
+            <p>Unlock the full potential of your online presence with Seoly, where innovation meets optimization. In today's digital landscape, visibility is paramount, and our tailored SEO solutions are crafted to ensure your brand shines brightly amidst the competition.</p>
+
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
         </div>
-    </footer>
+    </div>
+    <!-- overlay content end -->
 
-    <script>
-            // --- Blog Engine (JSONP) ---
-            (function () {
-                const CONFIG = {
-                    feedUrl: "https://growwithguidance.blogspot.com/feeds/posts/default",
-                    itemsPerLoad: 6,
-                    icons: {
-                        bookmarkOn: "bookmark",
-                        bookmarkOff: "bookmark_border",
-                    }
-                };
 
-                let state = {
-                    rawData: [],
-                    filteredData: [],
-                    watchlist: JSON.parse(localStorage.getItem('waveClick_watchlist') || '[]'),
-                    currentPage: 1
-                };
-
-                // JSONP Fetcher
-                window.fetchSource = function () {
-                    const script = document.createElement('script');
-                    script.src = `${CONFIG.feedUrl}?alt=json-in-script&callback=processBlogData&max-results=50`;
-                    document.body.appendChild(script);
-                };
-
-                // Global Callback for JSONP
-                window.processBlogData = function (data) {
-                    if (!data || !data.feed || !data.feed.entry) {
-                        document.getElementById('blogGrid').innerHTML = '<div class="col-span-full text-center text-text-muted">No posts found.</div>';
-                        return;
-                    }
-
-                    state.rawData = data.feed.entry.map(processEntry);
-                    applyFilters();
-                };
-
-                function processEntry(entry) {
-                    const id = entry.id.$t.split('-').pop();
-                    const title = entry.title.$t;
-                    // Extract first image
-                    const content = entry.content ? entry.content.$t : '';
-                    const doc = new DOMParser().parseFromString(content, 'text/html');
-                    const img = doc.querySelector('img');
-                    const image = img ? img.src : 'https://placehold.co/600x400/121212/D4FF37?text=No+Image';
-
-                    // Get Categories
-                    const categories = entry.category ? entry.category.map(c => c.term) : [];
-                    // Get URL
-                    const link = entry.link.find(l => l.rel === 'alternate').href;
-                    // Date
-                    const date = new Date(entry.published.$t).toLocaleDateString('en-US', {
-                        year: 'numeric', month: 'long', day: 'numeric'
-                    });
-
-                    return { id, title, image, link, date, summary: doc.body.textContent.substring(0, 100) + '...' };
-                }
-
-                function applyFilters() {
-                    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-                    const sortOrder = document.getElementById('sortSelect').value;
-
-                    let filtered = state.rawData.filter(post => {
-                        const matchesSearch = post.title.toLowerCase().includes(searchTerm);
-                        return matchesSearch;
-                    });
-
-                    if (sortOrder === 'newest') {
-                        // Already sorted by feed usually, but valid to keep structure
-                        // If needed: filtered.sort((a,b) => new Date(b.date) - new Date(a.date));
-                    } else {
-                        filtered.reverse();
-                    }
-
-                    state.filteredData = filtered;
-                    state.currentPage = 1;
-                    renderGrid();
-                }
-
-                // Removed renderTags() and filterByTag() functions
-
-                function renderGrid() {
-                    const grid = document.getElementById('blogGrid');
-                    const start = (state.currentPage - 1) * CONFIG.itemsPerLoad;
-                    const end = start + CONFIG.itemsPerLoad;
-                    const pageData = state.filteredData.slice(start, end);
-
-                    if (pageData.length === 0) {
-                        grid.innerHTML = '<div class="col-span-full text-center text-text-muted py-12">No matching insights found.</div>';
-                        document.getElementById('paginationControls').innerHTML = '';
-                        return;
-                    }
-
-                    grid.innerHTML = pageData.map(post => `
-                    <div class="bg-bg-card rounded-2xl overflow-hidden group border border-white/5 hover:border-primary/30 transition-all duration-500 tilt-card">
-                        <div class="relative h-48 overflow-hidden tilt-content">
-                            <img src="${post.image}" alt="${post.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        </div>
-                        <div class="p-6 tilt-content">
-                            <div class="flex items-center gap-2 text-[10px] text-text-muted uppercase font-bold tracking-widest mb-3">
-                                <span>${post.date}</span>
-                            </div>
-                            <h3 class="text-xl font-bold leading-tight mb-3 group-hover:text-primary transition-colors line-clamp-2">
-                                <a href="${post.link}" target="_blank">${post.title}</a>
-                            </h3>
-                            <a href="${post.link}" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white mt-4 group-hover:gap-3 transition-all">
-                                Read More <span class="material-symbols-outlined text-sm text-primary">north_east</span>
-                            </a>
-                        </div>
-                    </div>
-                `).join('');
-
-                    renderPagination();
-                }
-
-                function renderPagination() {
-                    const totalPages = Math.ceil(state.filteredData.length / CONFIG.itemsPerLoad);
-                    const controls = document.getElementById('paginationControls');
-
-                    if (totalPages <= 1) {
-                        controls.innerHTML = '';
-                        return;
-                    }
-
-                    let html = '';
-                    if (state.currentPage > 1) {
-                        html += `<button onclick="changePage(${state.currentPage - 1})" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-black transition-all"><span class="material-symbols-outlined">chevron_left</span></button>`;
-                    }
-
-                    html += `<span class="flex items-center px-4 text-xs font-bold text-text-muted">Page ${state.currentPage} of ${totalPages}</span>`;
-
-                    if (state.currentPage < totalPages) {
-                        html += `<button onclick="changePage(${state.currentPage + 1})" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-black transition-all"><span class="material-symbols-outlined">chevron_right</span></button>`;
-                    }
-
-                    controls.innerHTML = html;
-                }
-
-                window.changePage = function (page) {
-                    state.currentPage = page;
-                    renderGrid();
-                    document.getElementById('blog').scrollIntoView({ behavior: 'smooth' });
-                }
-
-                // Init Events
-                document.getElementById('searchInput').addEventListener('input', () => { applyFilters(); });
-                document.getElementById('sortSelect').addEventListener('change', () => { applyFilters(); });
-
-                // Initialize
-                document.addEventListener('DOMContentLoaded', fetchSource);
-
-            })();
-
-        // --- Intersection Observer for Animations ---
-        document.addEventListener('DOMContentLoaded', () => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.fade-in-section').forEach(section => {
-                observer.observe(section);
-            });
-
-            // Contact Form Handler
-            const contactForm = document.getElementById('contactForm');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function (e) {
-                    e.preventDefault();
-
-                    const name = document.getElementById('formName').value;
-                    const email = document.getElementById('formEmail').value;
-                    const subject = document.getElementById('formSubject').value;
-                    const message = document.getElementById('formMessage').value;
-
-                    const mailtoLink = `mailto:Waveclickinfo@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message)}`;
-
-                    window.location.href = mailtoLink;
-                });
-            }
-
-            // Simple 3D Tilt Script
-            document.querySelectorAll('.tilt-card').forEach(card => {
-                card.addEventListener('mousemove', function (e) {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-
-                    const rotateX = ((y - centerY) / centerY) * -5; // Max rotation 5deg
-                    const rotateY = ((x - centerX) / centerX) * 5;
-
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-                });
-
-                card.addEventListener('mouseleave', function () {
-                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-                });
-            });
-        });
-    </script>
+    <!-- Javascript Files
+    ================================================== -->
+    <script src="js/vendors.js"></script>
+    <script src="js/designesia.js"></script>
+    <script src="js/custom-marquee.js"></script>
+   
 </body>
 
 </html>
