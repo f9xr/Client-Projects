@@ -133,7 +133,7 @@
         <section class="features-section" style="padding: 100px 5%;">
             <div class="feature-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
                 <div class="feature-card glass reveal" style="padding: 3rem; border-radius: var(--radius-xl);">
-                    <i class="fas fa-shield-check text-gold" style="font-size: 2.5rem; margin-bottom: 2rem;"></i>
+                    <i class="fas fa-shield-halved text-gold" style="font-size: 2.5rem; margin-bottom: 2rem;"></i>
                     <h3 style="margin-bottom: 1rem;">Verified Only</h3>
                     <p style="opacity: 0.6;">We manually audit every opportunity. No scams, no phishing, only legitimate
                         Web3 protocols and airdrops.</p>
@@ -174,6 +174,7 @@
                             <p>Connect with our community on Telegram or Discord and choose your preferred learning
                                 discipline.</p>
                         </div>
+                        <div class="step-arrow"><i class="fas fa-chevron-down"></i></div>
                     </div>
 
                     <div class="step-row reveal">
@@ -183,6 +184,7 @@
                             <p>Follow our daily interactive guides and set up automated protocols to claim your verified
                                 rewards.</p>
                         </div>
+                        <div class="step-arrow"><i class="fas fa-chevron-down"></i></div>
                     </div>
 
                     <div class="step-row reveal">
@@ -227,22 +229,28 @@
         </section>
 
         <!-- Improved Live Earnings UI (BTC) -->
-        <div style="position: fixed; bottom: 2rem; left: 2rem; z-index: 100; max-width: 320px;" class="glass reveal">
-            <div style="padding: 1.5rem;">
-                <div style="display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.2rem;">
+        <div id="liveEarningsOverlay"
+            style="position: fixed; bottom: 2rem; left: 2rem; z-index: 100; max-width: 280px; border-radius: 20px;"
+            class="glass reveal">
+            <button id="closeEarnings"
+                style="position: absolute; top: 0.5rem; right: 0.5rem; background: none; border: none; color: white; opacity: 0.3; cursor: pointer; padding: 5px;">
+                <i class="fas fa-times"></i>
+            </button>
+            <div style="padding: 1.2rem;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                     <div class="status-dot"></div>
                     <div>
-                        <div style="font-size: 0.75rem; opacity: 0.5; text-transform: uppercase; letter-spacing: 2px;">
+                        <div style="font-size: 0.65rem; opacity: 0.5; text-transform: uppercase; letter-spacing: 2px;">
                             Live Global Earnings</div>
                         <div id="liveCounter"
-                            style="font-family: var(--font-heading); font-weight: 800; font-size: 1.6rem; color: white;">
+                            style="font-family: var(--font-heading); font-weight: 800; font-size: 1.3rem; color: white;">
                             0.00000000 BTC</div>
                     </div>
                 </div>
                 <a href="https://ttearncrypto.github.io/dashboards" target="_blank" class="btn-primary"
-                    style="display: block; text-align: center; padding: 0.8rem; font-size: 0.9rem; text-decoration: none; border-radius: 12px; width: 100%;">
+                    style="display: block; text-align: center; padding: 0.6rem; font-size: 0.8rem; text-decoration: none; border-radius: 10px; width: 100%;">
                     Dashboard Access <i class="fas fa-external-link-alt"
-                        style="margin-left: 8px; font-size: 0.75rem;"></i>
+                        style="margin-left: 6px; font-size: 0.7rem;"></i>
                 </a>
             </div>
         </div>
@@ -582,7 +590,7 @@
 
     <!-- Floating Security Widget -->
     <div class="safety-widget glass">
-        <i class="fas fa-shield-check" style="font-size: 1.2rem;"></i>
+        <i class="fas fa-shield-halved" style="font-size: 1.2rem;"></i>
     </div>
 
     <!-- Scripts -->

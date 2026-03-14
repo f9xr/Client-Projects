@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GatiGo - Premium Carpooling | Safar Bhii, Bachatt Bhi!!</title>
+    <meta name="description" content="GatiGo is a tech-driven carpooling platform that connects drivers who have empty seats with commuters traveling in the same direction. Intra-city and intercity travel." />
+    <meta name="keywords" content="carpooling, rideshare, GatiGo, commute, eco-friendly, intercity travel, premium mobility" />
+    <meta name="author" content="inAKM - GatiGo" />
+    <meta property="og:title" content="GatiGo - Premium Carpooling" />
+    <meta property="og:description" content="Carpooling for smarter, greener cities. Connect with commuters traveling your way." />
+    <meta property="og:type" content="website" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "GatiGo",
+      "applicationCategory": "TravelApplication",
+      "operatingSystem": "iOS, Android",
+      "description": "Premium tech-driven carpooling platform connecting verified drivers with identical route passengers.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1245"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "inAKM",
+        "url": "https://inakm.github.io"
+      }
+    }
+    </script>
+    
+    <!-- Google Fonts: Syncopate and Inter for premium aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Syncopate', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981', // Emerald 500
+                            600: '#059669',
+                            900: '#064e3b',
+                            accent: '#f59e0b', // Amber
+                        },
+                        ui: {
+                            base: '#050505', // Super dark, almost black
+                            surface: '#111111',
+                            border: '#222222',
+                            text: '#a3a3a3',
+                            heading: '#ffffff'
+                        }
+                    },
+                    borderRadius: {
+                        '4xl': '2.5rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: #a3a3a3;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Hide scrollbar for clean premium look, optional */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #222222;
+            border-radius: 4px;
+        }
+
+        .glass-nav {
+            background: rgba(5, 5, 5, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-clip {
+            /* Creates a unique rounded bottom-left corner cut like the reference */
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%, 0 85%);
+            border-radius: 2.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-clip {
+                clip-path: none;
+                border-radius: 1.5rem;
+            }
+        }
+
+        .glow-text {
+            text-shadow: 0 0 40px rgba(16, 185, 129, 0.4);
+        }
+
+        .feature-card {
+            background: #111111;
+            border: 1px solid #222222;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #10b981;
+            box-shadow: 0 20px 40px -10px rgba(16, 185, 129, 0.1);
+        }
+
+        .icon-btn-hover {
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .feature-card:hover .icon-btn-hover {
+            background: #10b981;
+            color: white;
+            transform: rotate(45deg);
+        }
+
+        /* Subtle grid background */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+        }
+
+        /* Slider additions */
+        .slider-wrapper {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+        }
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .slide {
+            min-width: 100%;
+            flex: 0 0 100%;
+        }
+        @media (min-width: 768px) {
+            .slide {
+                min-width: 33.3333%;
+                flex: 0 0 33.3333%;
+            }
+        }
+        
+        /* FAQ Accordion Fixes */
+        details {
+            transition: all 0.3s ease;
+        }
+        details > summary {
+            list-style: none;
+            cursor: pointer;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] summary ~ * {
+            animation: sweep .5s ease-in-out;
+        }
+        @keyframes sweep {
+            0%    {opacity: 0; transform: translateY(-10px)}
+            100%  {opacity: 1; transform: translateY(0)}
+        }
+    </style>
+</head>
+
+<body class="bg-ui-base relative overflow-x-hidden pt-4 sm:pt-6">
+
+    <!-- BEGIN: Hero Section -->
+    <!-- The hero wrapper has side paddings to allow the rounded box to float -->
+    <div class="px-4 sm:px-6 lg:px-8 max-w-[1400px] mx-auto mb-20 relative z-10">
+        
+        <div class="relative w-full min-h-[85vh] hero-clip overflow-hidden flex flex-col pt-6 pb-20 justify-between">
+            <!-- Background Image -->
+            <div class="absolute inset-0 w-full h-full z-0">
+                <!-- Using the generated premium car image path -->
+                <img src="/absolute/path/to/artifacts/luxury_car_hero_1773494742557.png" 
+                     onerror="this.src='https://images.unsplash.com/photo-1617469165786-8007eda3caa7?q=80&w=2670&auto=format&fit=crop'"
+                     alt="Premium Carpooling" 
+                     class="w-full h-full object-cover object-center scale-105" />
+                <div class="absolute inset-0 bg-gradient-to-t from-ui-base/90 via-ui-base/60 to-ui-base/30"></div>
+                <div class="absolute inset-0 bg-brand-500/10 mix-blend-overlay"></div>
+            </div>
+
+            <!-- Navigation inside Hero -->
+            <nav class="relative z-50 w-full px-8 py-4 mb-auto flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-brand-500 flex items-center justify-center text-white">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                        </svg>
+                    </div>
+                    <span class="font-display font-bold text-xl tracking-wider text-white">GATIGO</span>
+                </div>
+                
+                <div class="hidden lg:flex items-center gap-8 font-medium text-sm text-gray-300">
+                    <a href="#" class="hover:text-white transition-colors uppercase tracking-widest text-xs nav-link">Home</a>
+                    <a href="#features" class="hover:text-white transition-colors uppercase tracking-widest text-xs nav-link">Features</a>
+                    <a href="#corporate" class="hover:text-white transition-colors uppercase tracking-widest text-xs nav-link">Corporate</a>
+                    <a href="#support" class="hover:text-white transition-colors uppercase tracking-widest text-xs nav-link">Support</a>
+                    <a href="#careers" class="hover:text-white transition-colors uppercase tracking-widest text-xs nav-link">Careers</a>
+                </div>
+
+                <div class="hidden sm:flex items-center gap-6">
+                    <button class="text-white hover:text-brand-500 transition-colors uppercase tracking-widest text-xs font-semibold">Login</button>
+                    <button class="px-6 py-2.5 rounded-full border border-white/20 text-white hover:bg-white hover:text-black transition-all uppercase tracking-widest text-xs font-semibold backdrop-blur-sm">
+                        Contact Us
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Hero Content -->
+            <div class="relative z-10 px-8 sm:px-12 lg:px-20 mt-24 mb-10 max-w-4xl">
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-display font-bold text-white leading-[1.1] mb-6 glow-text tracking-tight uppercase">
+                    SAFAR BHII,<br />BACHATT BHI.
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl font-light leading-relaxed">
+                    Carpooling for smarter, greener cities. Experience premium mobility. Connect with commuters traveling your way with high-performance tech.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 mb-12">
+                    <button class="px-8 py-4 bg-brand-500 text-white rounded-full font-semibold tracking-wide hover:bg-brand-600 transition-all flex items-center justify-center gap-3">
+                        Find a Ride
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                    </button>
+                    <button class="px-8 py-4 bg-white/10 backdrop-blur-md rounded-full font-semibold text-white border border-white/20 hover:bg-white/20 transition-all flex items-center justify-center gap-3">
+                        Offer a Ride
+                    </button>
+                </div>
+
+                <!-- App Download Buttons inside Hero -->
+                <div class="flex flex-wrap items-center gap-4">
+                    <a href="#" class="flex items-center gap-3 px-5 py-2.5 bg-black/50 backdrop-blur-md rounded-full border border-white/10 hover:border-brand-500/50 transition-all group">
+                        <svg class="w-6 h-6 text-white group-hover:text-brand-500 transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.04 2.26-.82 3.59-.8 1.54.04 2.76.65 3.5 1.77-3.07 1.81-2.58 5.75.39 6.91-.72 1.83-1.65 3.42-2.56 4.29zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.38 2.45-2.08 4.49-3.74 4.25z"/>
+                        </svg>
+                        <div>
+                            <div class="text-[9px] uppercase tracking-widest text-gray-400">Download on the</div>
+                            <div class="text-sm text-white font-semibold">App Store</div>
+                        </div>
+                    </a>
+                    <a href="#" class="flex items-center gap-3 px-5 py-2.5 bg-black/50 backdrop-blur-md rounded-full border border-white/10 hover:border-brand-500/50 transition-all group">
+                        <svg class="w-6 h-6 text-white group-hover:text-brand-500 transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M3.568 2.37A1.9 1.9 0 0 0 3 3.66v16.68a1.9 1.9 0 0 0 .568 1.29L12 13l-8.432-8.63zM12.923 13.916l-1.325-1.316L4.721 5.86l8.805 5.093-1.31 1.3M13.882 14.437l4.004-2.2-4.004-2.2-1.39 1.385-1.39-1.385zM4.721 18.14l6.878-6.735 1.31 1.31-8.805 5.093z"/>
+                        </svg>
+                        <div>
+                            <div class="text-[9px] uppercase tracking-widest text-gray-400">Get it on</div>
+                            <div class="text-sm text-white font-semibold">Google Play</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: Hero Section -->
+
+    <!-- BEGIN: Stats Row -->
+    <section class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 mb-24 relative z-20 -mt-16 sm:-mt-24 pointer-events-none">
+        <div class="flex flex-wrap justify-between items-end pl-0 sm:pl-[20%] lg:pl-[30%] gap-8 font-display">
+            <div class="pointer-events-auto">
+                <div class="text-3xl lg:text-5xl font-bold text-white mb-1">10K+</div>
+                <div class="text-xs uppercase tracking-widest text-gray-500">Rides Monthly</div>
+            </div>
+            <div class="pointer-events-auto">
+                <div class="text-3xl lg:text-5xl font-bold text-white mb-1">99.9%</div>
+                <div class="text-xs uppercase tracking-widest text-gray-500">Safe Rides</div>
+            </div>
+            <div class="pointer-events-auto">
+                <div class="text-3xl lg:text-5xl font-bold text-white mb-1">1M+</div>
+                <div class="text-xs uppercase tracking-widest text-gray-500">Commuters</div>
+            </div>
+            <div class="pointer-events-auto pr-8">
+                <div class="text-3xl lg:text-5xl font-bold text-white mb-1">50+</div>
+                <div class="text-xs uppercase tracking-widest text-gray-500">Cities Live</div>
+            </div>
+        </div>
+    </section>
+    <!-- END: Stats Row -->
+
+    <!-- BEGIN: Quick Find Ride -->
+    <section class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mb-32 relative z-30">
+        <div class="bg-ui-surface border-t border-l border-r border-[#2a2a2a] rounded-t-3xl rounded-b-xl overflow-hidden shadow-2xl shadow-black/50">
+            <div class="grid md:grid-cols-2">
+                <div class="p-10 md:p-14 border-b md:border-b-0 md:border-r border-[#2a2a2a] bg-grid flex flex-col justify-center">
+                    <h2 class="text-3xl font-display font-bold text-white mb-4 uppercase tracking-wide">Find Your Next Ride</h2>
+                    <p class="text-gray-400 font-light leading-relaxed">Instantly match with verified drivers going your way. Save time, split costs, and reduce your carbon footprint.</p>
+                </div>
+                <div class="p-10 md:p-14 bg-[#0a0a0a]">
+                    <div class="mb-6 flex justify-between items-center text-xs uppercase tracking-widest text-gray-500">
+                        <span>Quick Search</span>
+                        <div class="flex items-center gap-2 text-brand-500"><span class="block w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span> Live</div>
+                    </div>
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <input type="text" placeholder="Leaving from..." class="w-full bg-ui-surface border border-ui-border rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-500 transition-colors" />
+                            <input type="text" placeholder="Going to..." class="w-full bg-ui-surface border border-ui-border rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-500 transition-colors" />
+                        </div>
+                        <input type="date" class="w-full bg-ui-surface border border-ui-border rounded-xl px-5 py-4 text-gray-400 focus:outline-none focus:border-brand-500 transition-colors" />
+                        <button class="w-full bg-brand-500 text-white font-bold tracking-wide rounded-xl py-4 uppercase hover:bg-brand-600 transition-colors border border-brand-400/50 shadow-[0_0_20px_rgba(16,185,129,0.2)]">
+                            Search Commutes
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END: Quick Find Ride -->
+
+    <!-- BEGIN: How It Works & Step by Step Process -->
+    <section class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-[#050505]" id="how-it-works">
+        <div class="text-center mb-16">
+            <h2 class="text-sm text-brand-500 uppercase tracking-[0.3em] font-semibold mb-3">Process</h2>
+            <h3 class="text-3xl md:text-5xl font-display font-bold text-white uppercase">How It Works</h3>
+            <p class="text-gray-400 mt-4 max-w-2xl mx-auto font-light leading-relaxed">Three simple steps to redefine your commute, saving time and money while engaging in premium sustainable travel.</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8 relative">
+            <!-- connecting line -->
+            <div class="hidden md:block absolute top-1/2 left-[15%] right-[15%] h-px bg-gradient-to-r from-transparent via-brand-500/50 to-transparent -translate-y-12 z-0"></div>
+            
+            <div class="relative z-10 flex flex-col items-center text-center p-6">
+                <div class="w-24 h-24 rounded-full bg-ui-surface border border-ui-border flex items-center justify-center mb-6 shadow-xl text-3xl font-display font-bold text-brand-500">01</div>
+                <h4 class="text-xl font-bold text-white mb-2 uppercase tracking-wide">Search & Match</h4>
+                <p class="text-gray-400 text-sm font-light">Enter your start and end points. Our AI matches your exact route and preferred departure window with verified commuters.</p>
+            </div>
+            
+            <div class="relative z-10 flex flex-col items-center text-center p-6">
+                <div class="w-24 h-24 rounded-full bg-brand-500 border border-brand-400 flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(16,185,129,0.3)] text-3xl font-display font-bold text-white scale-110">02</div>
+                <h4 class="text-xl font-bold text-white mb-2 uppercase tracking-wide">Connect & Ride</h4>
+                <p class="text-gray-400 text-sm font-light">Chat securely in-app, coordinate meetups at safe locations, and share your live GPS tracker with friends or family.</p>
+            </div>
+            
+            <div class="relative z-10 flex flex-col items-center text-center p-6">
+                <div class="w-24 h-24 rounded-full bg-ui-surface border border-ui-border flex items-center justify-center mb-6 shadow-xl text-3xl font-display font-bold text-brand-500">03</div>
+                <h4 class="text-xl font-bold text-white mb-2 uppercase tracking-wide">Split & Save</h4>
+                <p class="text-gray-400 text-sm font-light">Payments are automatically deducted from your wallet upon arrival. Zero haggling, pure convenience, lower carbon footprint.</p>
+            </div>
+        </div>
+    </section>
+    <!-- END: How It Works -->
+
+    <!-- BEGIN: Corporate Bookings -->
+    <section class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-20 relative bg-[#0a0a0a] border-y border-[#2a2a2a] overflow-hidden" id="corporate">
+        <div class="absolute inset-0 bg-brand-500/5 mix-blend-overlay"></div>
+        <div class="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-sm text-brand-500 uppercase tracking-[0.3em] font-semibold mb-3">B2B Mobility</h2>
+                <h3 class="text-3xl md:text-5xl font-display font-bold text-white uppercase mb-6 leading-tight">Corporate<br/>Carpooling<br/>Programs</h3>
+                <p class="text-gray-300 font-light leading-relaxed mb-8 max-w-lg">
+                    Reimagine employee commutes with our white-label enterprise solutions. We help large corporate parks significantly reduce parking capacity strain while tracking ESG goals via automated sustainability reporting.
+                </p>
+                <div class="space-y-4 mb-10">
+                    <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 rounded-full bg-brand-500"></div><span class="text-gray-300">Company-Exclusive Private Riding Rings</span></div>
+                    <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 rounded-full bg-brand-500"></div><span class="text-gray-300">Automated Employee Wallet Allowances</span></div>
+                    <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 rounded-full bg-brand-500"></div><span class="text-gray-300">Real-time Carbon Offset Dashboards</span></div>
+                </div>
+                <button class="px-8 py-3.5 bg-white text-black rounded-full font-bold uppercase tracking-wide hover:bg-gray-200 transition-all text-sm">
+                    Book Corporate Demo
+                </button>
+            </div>
+            <div class="relative rounded-3xl overflow-hidden border border-ui-border shadow-2xl p-1 bg-gradient-to-br from-[#2a2a2a] to-[#0a0a0a]">
+                <div class="bg-ui-surface rounded-[22px] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" alt="Corporate B2B" class="w-full h-[400px] object-cover opacity-80" />
+                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 p-8">
+                        <div class="font-display font-bold text-white text-2xl">Smart ESG Integration</div>
+                        <div class="text-brand-500">Powering green companies tomorrow.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END: Corporate Bookings -->
+
+    <!-- BEGIN: Core Features Mapping -->
+    <section class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-grid" id="features">
+        <div class="text-center mb-20">
+            <h2 class="text-sm text-brand-500 uppercase tracking-[0.3em] font-semibold mb-3">Core Features</h2>
+            <h3 class="text-3xl md:text-5xl font-display font-bold text-white uppercase">What GatiGo Does</h3>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- Feature 1 -->
+            <div class="feature-card rounded-3xl p-8 relative flex flex-col group cursor-pointer">
+                <div class="absolute top-8 right-8 w-10 h-10 rounded-full border border-ui-border flex items-center justify-center icon-btn-hover text-gray-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </div>
+                <div class="w-14 h-14 rounded-2xl bg-brand-500/10 text-brand-500 flex items-center justify-center mb-8 border border-brand-500/20">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-3">Smart Ride Matching</h4>
+                <p class="text-sm text-gray-400 leading-relaxed font-light mb-6">AI-powered matching of drivers and riders by exact route, timing, and personal preferences.</p>
+                <ul class="space-y-2 text-sm text-gray-500 mt-auto">
+                    <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-brand-500"></div> Predicts Route</li>
+                    <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-brand-500"></div> Matches Timing</li>
+                </ul>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-card rounded-3xl p-8 relative flex flex-col group cursor-pointer lg:mt-10">
+                <div class="absolute top-8 right-8 w-10 h-10 rounded-full border border-ui-border flex items-center justify-center icon-btn-hover text-gray-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </div>
+                <div class="w-14 h-14 rounded-2xl bg-brand-500/10 text-brand-500 flex items-center justify-center mb-8 border border-brand-500/20">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-3">Real-Time GPS Tracking</h4>
+                <p class="text-sm text-gray-400 leading-relaxed font-light mb-6">Live, uncompromised location sharing for extreme safety and utter peace of mind.</p>
+                <ul class="space-y-2 text-sm text-gray-500 mt-auto">
+                    <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-brand-500"></div> Live Routing</li>
+                    <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-brand-500"></div> Sharable Links</li>
+                </ul>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-card rounded-3xl p-8 relative flex flex-col group cursor-pointer">
+                <div class="absolute top-8 right-8 w-10 h-10 rounded-full border border-ui-border flex items-center justify-center icon-btn-hover text-gray-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </div>
+                <div class="w-14 h-14 rounded-2xl bg-brand-500/10 text-brand-500 flex items-center justify-center mb-8 border border-brand-500/20">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-3">Verified Profiles</h4>
+                <p class="text-sm text-gray-400 leading-relaxed font-light mb-6">100% Secure. Government ID and background checks mandatory for all registered drivers.</p>
+                <ul class="space-y-2 text-sm text-gray-500 mt-auto">
+                    <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-brand-500"></div> KYC Integration</li>
+                    <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-brand-500"></div> Biometric Ready</li>
+                </ul>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="feature-card rounded-3xl p-8 relative flex flex-col group cursor-pointer lg:mt-10">
+                <div class="absolute top-8 right-8 w-10 h-10 rounded-full border border-ui-border flex items-center justify-center icon-btn-hover text-gray-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </div>
+                <div class="w-14 h-14 rounded-2xl bg-red-500/10 text-red-500 flex items-center justify-center mb-8 border border-red-500/20">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-3">In-App SOS Alerts</h4>
+                <p class="text-sm text-gray-400 leading-relaxed font-light mb-6">One tap emergency button directly connected to trusted contacts and local authorities.</p>
+                <ul class="space-y-2 text-sm text-gray-500 mt-auto">
+                    <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-red-500"></div> 24/7 Response</li>
+                    <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-red-500"></div> Location Ping</li>
+                </ul>
+            </div>
+
+            <!-- Feature 5 -->
+            <div class="feature-card rounded-3xl p-8 relative flex flex-col group cursor-pointer">
+                <div class="absolute top-8 right-8 w-10 h-10 rounded-full border border-ui-border flex items-center justify-center icon-btn-hover text-gray-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </div>
+                <div class="w-14 h-14 rounded-2xl bg-brand-500/10 text-brand-500 flex items-center justify-center mb-8 border border-brand-500/20">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-3">Flexible Scheduling</h4>
+                <p class="text-sm text-gray-400 leading-relaxed font-light mb-6">On-demand quick rides or pre-scheduled recurring rides for your daily commute.</p>
+                <ul class="space-y-2 text-sm text-gray-500 mt-auto">
+                    <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-brand-500"></div> Mon-Fri Plans</li>
+                    <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-brand-500"></div> Custom Alerts</li>
+                </ul>
+            </div>
+
+            <!-- Feature 6 -->
+            <div class="feature-card rounded-3xl p-8 relative flex flex-col group cursor-pointer lg:mt-10">
+                <div class="absolute top-8 right-8 w-10 h-10 rounded-full border border-ui-border flex items-center justify-center icon-btn-hover text-gray-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </div>
+                <div class="w-14 h-14 rounded-2xl bg-brand-500/10 text-brand-500 flex items-center justify-center mb-8 border border-brand-500/20">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-3">Intercity Carpooling</h4>
+                <p class="text-sm text-gray-400 leading-relaxed font-light mb-6">Long-distance shared rides between major hubs like Hyderabad, Bengaluru & Mumbai.</p>
+                <ul class="space-y-2 text-sm text-gray-500 mt-auto">
+                    <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-brand-500"></div> Highway Safe</li>
+                    <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-brand-500"></div> Toll Split</li>
+                </ul>
+            </div>
+
+             <!-- Feature 7 -->
+             <div class="feature-card rounded-3xl p-8 relative flex flex-col group cursor-pointer">
+                <div class="absolute top-8 right-8 w-10 h-10 rounded-full border border-ui-border flex items-center justify-center icon-btn-hover text-gray-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </div>
+                <div class="w-14 h-14 rounded-2xl bg-brand-500/10 text-brand-500 flex items-center justify-center mb-8 border border-brand-500/20">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m4 0h1m-5 10h1m4 0h1m-5-5h1m4 0h1"></path></svg>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-3">Corporate Solutions</h4>
+                <p class="text-sm text-gray-400 leading-relaxed font-light mb-6">White-label setups tailored for employee commutes in IT parks and busy tech districts.</p>
+                <ul class="space-y-2 text-sm text-gray-500 mt-auto">
+                    <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-brand-500"></div> Company Validated</li>
+                    <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-brand-500"></div> Private Groups</li>
+                </ul>
+            </div>
+
+            <!-- Feature 8 -->
+            <div class="feature-card rounded-3xl p-8 relative flex flex-col group cursor-pointer lg:mt-10">
+                <div class="absolute top-8 right-8 w-10 h-10 rounded-full border border-ui-border flex items-center justify-center icon-btn-hover text-gray-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </div>
+                <div class="w-14 h-14 rounded-2xl bg-brand-500/10 text-brand-500 flex items-center justify-center mb-8 border border-brand-500/20">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-3">Secure Payments</h4>
+                <p class="text-sm text-gray-400 leading-relaxed font-light mb-6">Cashless, instant, and frictionless. Complete support for UPI, Cards, & in-app Wallet.</p>
+                <ul class="space-y-2 text-sm text-gray-500 mt-auto">
+                    <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-brand-500"></div> Zero Deductions</li>
+                    <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-brand-500"></div> Auto-Split Bills</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+    <!-- END: Core Features -->
+
+    <!-- BEGIN: Testimonials / Target Audience -->
+    <section class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-ui-border" id="testimonials">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 px-4">
+            <div>
+                <h2 class="text-3xl md:text-5xl font-display font-bold text-white uppercase tracking-wide">Customer<br/>Testimonials</h2>
+            </div>
+            <div class="flex gap-4 mt-6 md:mt-0">
+                <button id="prev-btn" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors text-white z-10 cursor-pointer">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button id="next-btn" class="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center hover:bg-gray-200 transition-colors z-10 cursor-pointer">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="slider-wrapper">
+            <div class="slider-track" id="testimonial-track">
+                <!-- Testimonial 1 -->
+                <div class="slide px-2 md:w-1/3 md:min-w-[33.333%] min-w-full">
+                    <div class="bg-ui-surface p-10 rounded-3xl border border-ui-border hover:border-white/20 transition-colors h-full flex flex-col justify-between">
+                        <div>
+                            <svg class="w-10 h-10 text-brand-500/20 mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"></path></svg>
+                            <p class="text-gray-300 font-light leading-relaxed mb-8 text-base">"GatiGo's UI is incredibly sleek and the AI matching saves me 45 minutes every single day navigating Bangalore traffic. It's the only app I trust."</p>
+                        </div>
+                        <div class="flex items-center gap-4 mt-auto">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop" alt="Aditi Sharma" class="w-12 h-12 rounded-full object-cover border border-gray-600" />
+                            <div>
+                                <div class="text-white font-bold text-sm">Aditi Sharma</div>
+                                <div class="text-gray-500 text-xs">IT Professional, Bengaluru</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="slide px-2 md:w-1/3 md:min-w-[33.333%] min-w-full">
+                    <div class="bg-ui-surface p-10 rounded-3xl border border-ui-border hover:border-white/20 transition-colors h-full flex flex-col justify-between">
+                        <div>
+                            <svg class="w-10 h-10 text-brand-500/20 mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"></path></svg>
+                            <p class="text-gray-300 font-light leading-relaxed mb-8 text-base">"Finding rides for intercity travel between Mumbai & Pune is flawless. Zero hidden fees and highly premium verified drivers. Safe and fast."</p>
+                        </div>
+                        <div class="flex items-center gap-4 mt-auto">
+                            <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=150&auto=format&fit=crop" alt="Rahul Mehta" class="w-12 h-12 rounded-full object-cover border border-gray-600" />
+                            <div>
+                                <div class="text-white font-bold text-sm">Rahul Mehta</div>
+                                <div class="text-gray-500 text-xs">Millennial Traveler</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="slide px-2 md:w-1/3 md:min-w-[33.333%] min-w-full">
+                    <div class="bg-ui-surface p-10 rounded-3xl border border-ui-border hover:border-white/20 transition-colors h-full flex flex-col justify-between">
+                        <div>
+                            <svg class="w-10 h-10 text-brand-500/20 mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"></path></svg>
+                            <p class="text-gray-300 font-light leading-relaxed mb-8 text-base">"Our corporate white-label setup reduced parking congestion by 40%. The employees love the design and the ESG reporting is invaluable."</p>
+                        </div>
+                        <div class="flex items-center gap-4 mt-auto">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop" alt="Vikas Reddy" class="w-12 h-12 rounded-full object-cover border border-gray-600" />
+                            <div>
+                                <div class="text-white font-bold text-sm">Vikas Reddy</div>
+                                <div class="text-gray-500 text-xs">Operations Head, Hyderabad</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 4 (For Slider effect) -->
+                <div class="slide px-2 md:w-1/3 md:min-w-[33.333%] min-w-full">
+                    <div class="bg-ui-surface p-10 rounded-3xl border border-ui-border hover:border-white/20 transition-colors h-full flex flex-col justify-between">
+                        <div>
+                            <svg class="w-10 h-10 text-brand-500/20 mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"></path></svg>
+                            <p class="text-gray-300 font-light leading-relaxed mb-8 text-base">"A true game-changer for my eco-conscious lifestyle. I no longer feel guilty about single-occupancy trips, and the payment integration is so smooth."</p>
+                        </div>
+                        <div class="flex items-center gap-4 mt-auto">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=150&auto=format&fit=crop" alt="Priya K." class="w-12 h-12 rounded-full object-cover border border-gray-600" />
+                            <div>
+                                <div class="text-white font-bold text-sm">Priya K.</div>
+                                <div class="text-gray-500 text-xs">Sustainability Advocate</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END: Testimonials -->
+
+    <!-- BEGIN: FAQ -->
+    <section class="max-w-[800px] mx-auto px-4 sm:px-6 lg:px-8 py-20 mb-10" id="faq">
+        <div class="text-center mb-16">
+            <h2 class="text-sm text-brand-500 uppercase tracking-[0.3em] font-semibold mb-3">Questions?</h2>
+            <h3 class="text-3xl md:text-4xl font-display font-bold text-white uppercase">Frequently Asked Questions</h3>
+        </div>
+        <div class="space-y-4">
+            <details class="bg-ui-surface border border-ui-border rounded-2xl p-6 group cursor-pointer transition-colors hover:border-brand-500">
+                <summary class="flex justify-between items-center font-bold text-white text-lg">
+                    How are drivers verified?
+                    <svg class="w-5 h-5 text-brand-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </summary>
+                <p class="mt-4 text-gray-400 font-light leading-relaxed">Every driver undergoes a strict multi-layer verification process, including government ID vetting, vehicle registration checks, and a pristine driving history requirement.</p>
+            </details>
+            <details class="bg-ui-surface border border-ui-border rounded-2xl p-6 group cursor-pointer transition-colors hover:border-brand-500">
+                <summary class="flex justify-between items-center font-bold text-white text-lg">
+                    Can I schedule recurring rides?
+                    <svg class="w-5 h-5 text-brand-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </summary>
+                <p class="mt-4 text-gray-400 font-light leading-relaxed">Yes. Our app allows you to set up persistent schedules (like a Monday-Friday office commute) so you are automatically matched with your preferred network.</p>
+            </details>
+            <details class="bg-ui-surface border border-ui-border rounded-2xl p-6 group cursor-pointer transition-colors hover:border-brand-500">
+                <summary class="flex justify-between items-center font-bold text-white text-lg">
+                    How do payments work?
+                    <svg class="w-5 h-5 text-brand-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </summary>
+                <p class="mt-4 text-gray-400 font-light leading-relaxed">It's entirely cashless. You link your preferred payment method (UPI, Cards, or Wallet). The ride cost is automatically split and deducted once the trip completes.</p>
+            </details>
+        </div>
+    </section>
+    <!-- END: FAQ -->
+
+    <!-- BEGIN: Footer -->
+    <footer class="bg-black pt-20 border-t border-ui-border relative overflow-hidden" id="support">
+        <!-- Floating overlay card like reference image -->
+        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mb-20 relative z-20">
+            <div class="bg-white rounded-3xl p-10 md:p-14 shadow-2xl flex flex-col items-center text-center">
+                <h2 class="text-3xl md:text-5xl font-display font-bold text-black uppercase tracking-tight mb-8">
+                    LET GATIGO HANDLE<br />YOUR DAILY COMMUTE
+                </h2>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="px-10 py-4 bg-brand-500 text-white rounded-full font-bold uppercase tracking-wide hover:bg-brand-600 transition-all text-sm">
+                        Find a Ride
+                    </button>
+                    <!-- Download App buttons in floating card -->
+                    <div class="flex gap-4">
+                        <a href="#" class="px-6 py-4 bg-black text-white rounded-full font-bold uppercase tracking-wide hover:bg-gray-800 transition-all text-sm flex items-center gap-2">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.04 2.26-.82 3.59-.8 1.54.04 2.76.65 3.5 1.77-3.07 1.81-2.58 5.75.39 6.91-.72 1.83-1.65 3.42-2.56 4.29zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.38 2.45-2.08 4.49-3.74 4.25z"/></svg>
+                            iOS
+                        </a>
+                        <a href="#" class="px-6 py-4 bg-black text-white rounded-full font-bold uppercase tracking-wide hover:bg-gray-800 transition-all text-sm flex items-center gap-2">
+                             <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M3.568 2.37A1.9 1.9 0 0 0 3 3.66v16.68a1.9 1.9 0 0 0 .568 1.29L12 13l-8.432-8.63zM12.923 13.916l-1.325-1.316L4.721 5.86l8.805 5.093-1.31 1.3M13.882 14.437l4.004-2.2-4.004-2.2-1.39 1.385-1.39-1.385zM4.721 18.14l6.878-6.735 1.31 1.31-8.805 5.093z"/></svg>
+                            Android
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                
+                <!-- Brand Info -->
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-brand-500 flex items-center justify-center text-white">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                            </svg>
+                        </div>
+                        <span class="font-display font-bold text-xl tracking-wider text-white">GATIGO</span>
+                    </div>
+                    <p class="text-sm text-gray-400 leading-relaxed font-light mb-8 max-w-xs">
+                        Tech-driven carpooling platform connecting verified drivers with identical route passengers. Premium mobility.
+                    </p>
+                    <div class="flex gap-4">
+                        <!-- Social SVGs -->
+                        <a href="#" class="w-10 h-10 rounded-full bg-ui-surface border border-ui-border flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition-colors">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-ui-surface border border-ui-border flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition-colors">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-ui-surface border border-ui-border flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition-colors">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Company -->
+                <div id="corporate">
+                    <h4 class="text-white font-bold mb-6 uppercase text-sm tracking-widest">Company</h4>
+                    <ul class="space-y-4 text-sm font-light text-gray-400">
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">Corporate Programs</a></li>
+                        <li id="careers"><a href="#" class="hover:text-brand-500 transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase text-sm tracking-widest">Legal & Support</h4>
+                    <ul class="space-y-4 text-sm font-light text-gray-400">
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">Safety Protocols</a></li>
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">Terms & Conditions</a></li>
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">Cookie Policy</a></li>
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">Refund Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase text-sm tracking-widest">Contact Us</h4>
+                    <ul class="space-y-4 text-sm font-light text-gray-400">
+                        <li>hello@gatigo.com</li>
+                        <li>+91 800 123 4567</li>
+                        <li class="mt-8">
+                            <span class="block text-white font-bold tracking-widest text-xs mb-2">DOWNLOAD APP</span>
+                            <div class="flex gap-2">
+                                <a href="#" class="p-2 bg-ui-border rounded-lg hover:bg-gray-700 transition">
+                                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.04 2.26-.82 3.59-.8 1.54.04 2.76.65 3.5 1.77-3.07 1.81-2.58 5.75.39 6.91-.72 1.83-1.65 3.42-2.56 4.29zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.38 2.45-2.08 4.49-3.74 4.25z"/></svg>
+                                </a>
+                                <a href="#" class="p-2 bg-ui-border rounded-lg hover:bg-gray-700 transition">
+                                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M3.568 2.37A1.9 1.9 0 0 0 3 3.66v16.68a1.9 1.9 0 0 0 .568 1.29L12 13l-8.432-8.63zM12.923 13.916l-1.325-1.316L4.721 5.86l8.805 5.093-1.31 1.3M13.882 14.437l4.004-2.2-4.004-2.2-1.39 1.385-1.39-1.385zM4.721 18.14l6.878-6.735 1.31 1.31-8.805 5.093z"/></svg>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright Line & Disclaimer -->
+            <div class="border-t border-[#1a1a1a] pt-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-xs font-light text-gray-500 tracking-wider w-full">
+                
+                <div class="flex flex-col gap-3">
+                    <p>&copy; 2026 GATIGO TECHNOLOGIES INC. ALL RIGHTS RESERVED.</p>
+                    
+                    <!-- Improved Disclaimer -->
+                    <div class="inline-block p-4 border border-brand-500/20 bg-brand-500/5 rounded-xl max-w-2xl relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-brand-500/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
+                        <div class="relative z-10 flex items-start gap-3">
+                            <span class="text-brand-500 text-lg">ℹ️</span>
+                            <p class="leading-relaxed opacity-90 text-gray-300 font-medium">
+                                <span class="text-white font-bold tracking-wide uppercase text-opacity-100">Academic Project Disclaimer:</span><br/>
+                                This is not an actual startup. This landing page is a design concept for <strong class="text-white">GatiGo</strong>, showcasing a tech-driven carpooling platform. 
+                                <br/><br/>
+                                Designed & Developed by <a href="https://inakm.github.io/page/projects/gatigo.html" target="_blank" class="text-brand-500 hover:text-white font-bold border-b border-brand-500/50 hover:border-white transition-all pb-0.5 ml-1">@inAKM</a> (<a href="https://inakm.github.io" target="_blank" class="hover:text-white transition-colors">https://inakm.github.io</a>).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Correctly Hyperlinked Made by F9XR Team -->
+                <p class="whitespace-nowrap md:self-end">MADE BY <a href="https://f9xr.github.io" class="text-white hover:text-brand-500 transition-colors font-bold border-b border-transparent hover:border-brand-500 pb-0.5" target="_blank" rel="noopener noreferrer">F9XR TEAM</a></p>
+            </div>
+        </div>
+        
+        <!-- Large blurred glow effect at the bottom -->
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-brand-500/10 blur-[100px] pointer-events-none rounded-full"></div>
+    </footer>
+    <!-- END: Footer -->
+
+    <!-- Slider JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('testimonial-track');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            let currentIndex = 0;
+            
+            // Adjust logic based on responsive breakpoints if needed, 
+            // for simplicity assuming 1 slide scroll at a time
+            const getSlidesPerView = () => window.innerWidth >= 768 ? 3 : 1;
+            
+            prevBtn.addEventListener('click', () => {
+                const maxIndex = track.children.length - getSlidesPerView();
+                if (currentIndex > 0) {
+                    currentIndex--;
+                } else {
+                    currentIndex = maxIndex; // Loop to end
+                }
+                updateSlider();
+            });
+
+            nextBtn.addEventListener('click', () => {
+                const maxIndex = track.children.length - getSlidesPerView();
+                if (currentIndex < maxIndex) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0; // Loop to start
+                }
+                updateSlider();
+            });
+
+            function updateSlider() {
+                const isMobile = window.innerWidth < 768;
+                
+                if (isMobile) {
+                    // Mobile logic: slide pixel by pixel based on container width
+                    const slideWidth = track.parentElement.clientWidth;
+                    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+                } else {
+                    // Desktop logic: percentages
+                    const slideWidth = 100 / 3;
+                    track.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+                }
+            }
+            
+            // Allow clicking details to close others
+            const details = document.querySelectorAll("details");
+            details.forEach((targetDetail) => {
+              targetDetail.addEventListener("click", () => {
+                details.forEach((detail) => {
+                  if (detail !== targetDetail) {
+                    detail.removeAttribute("open");
+                  }
+                });
+              });
+            });
+
+            window.addEventListener('resize', updateSlider);
+        });
+    </script>
+</body>
+</html>

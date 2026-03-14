@@ -142,6 +142,31 @@ function setupMarquee() {
     marquee.innerHTML = content;
 }
 
+// Live Earnings Close Logic
+const closeEarningsBtn = document.getElementById('closeEarnings');
+const liveEarningsOverlay = document.getElementById('liveEarningsOverlay');
+
+if (closeEarningsBtn && liveEarningsOverlay) {
+    closeEarningsBtn.addEventListener('click', () => {
+        liveEarningsOverlay.style.display = 'none';
+    });
+}
+
+// Scroll-up Header Logic
+let lastScrollY = window.scrollY;
+const header = document.querySelector('header');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > lastScrollY && window.scrollY > 100) {
+        // Scrolling down - hide header
+        header.classList.add('header-hidden');
+    } else {
+        // Scrolling up - show header
+        header.classList.remove('header-hidden');
+    }
+    lastScrollY = window.scrollY;
+});
+
 // Init
 setupMarquee();
 fetchNews();

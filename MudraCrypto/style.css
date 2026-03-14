@@ -57,11 +57,22 @@ h4 {
 .bg-grid {
     position: fixed;
     inset: 0;
-    background-image: radial-gradient(var(--glass-border) 1px, transparent 1px);
-    background-size: 40px 40px;
-    opacity: 0.15;
+    background-image:
+        linear-gradient(rgba(255, 215, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 215, 0, 0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.3;
     z-index: -1;
     pointer-events: none;
+}
+
+.bg-grid::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 2px 2px, rgba(255, 215, 0, 0.1) 1px, transparent 0);
+    background-size: 24px 24px;
+    opacity: 0.5;
 }
 
 /* Glassmorphism */
@@ -116,10 +127,26 @@ h4 {
 .marquee-container {
     overflow: hidden;
     white-space: nowrap;
-    background: rgba(255, 215, 0, 0.03);
+    background: rgba(255, 215, 0, 0.02);
     border-bottom: 1px solid var(--glass-border);
-    padding: 1rem 0;
+    padding: 0.5rem 0;
+    /* Reduced padding */
     position: relative;
+    /* Removed sticky */
+    z-index: 5;
+}
+
+.marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0 2rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.85rem;
+    /* Reduced font size */
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .marquee-container::before,
@@ -174,6 +201,7 @@ h4 {
 header {
     position: fixed;
     top: 1.5rem;
+    /* Reset top */
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
@@ -184,6 +212,13 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Added transition */
+}
+
+.header-hidden {
+    transform: translate(-50%, -150%);
+    /* Hides header on scroll down */
 }
 
 /* Skeleton Loaders */
@@ -628,14 +663,38 @@ header {
     transform: rotate(45deg);
 }
 
-@media (max-width: 1024px) {
-    .testimonial-grid {
-        grid-template-columns: repeat(2, 1fr);
+/* Step Arrows */
+.step-arrow {
+    text-align: center;
+    color: var(--wealth-gold);
+    opacity: 0.3;
+    padding: 1rem 0;
+    font-size: 1.5rem;
+    animation: bounceDown 2s infinite;
+}
+
+@keyframes bounceDown {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
     }
 
-    .faq-grid {
-        grid-template-columns: 1fr;
+    40% {
+        transform: translateY(5px);
     }
+
+    60% {
+        transform: translateY(3px);
+    }
+}
+
+#closeEarnings:hover {
+    opacity: 1 !important;
+    color: var(--wealth-gold) !important;
 }
 
 @media (max-width: 768px) {
