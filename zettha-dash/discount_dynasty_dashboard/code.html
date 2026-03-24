@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Discount Dynasty | Sovereign Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-fixed-variant": "#574500",
+                        "on-background": "#dce2f6",
+                        "on-surface": "#dce2f6",
+                        "on-surface-variant": "#d0c5af",
+                        "surface-container-lowest": "#070e1c",
+                        "secondary-fixed": "#d1e4fb",
+                        "surface-dim": "#0c1321",
+                        "on-tertiary-container": "#3b4748",
+                        "on-primary-fixed": "#241a00",
+                        "surface-container": "#19202e",
+                        "tertiary": "#c3d1d2",
+                        "surface-container-high": "#232a39",
+                        "tertiary-fixed": "#d8e5e6",
+                        "surface-bright": "#323949",
+                        "on-tertiary-fixed-variant": "#3d494a",
+                        "error": "#ffb4ab",
+                        "secondary-container": "#36485b",
+                        "on-secondary-container": "#a4b7cd",
+                        "surface-tint": "#e9c349",
+                        "on-tertiary": "#263334",
+                        "primary-fixed-dim": "#e9c349",
+                        "outline-variant": "#4d4635",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-container": "#554300",
+                        "surface": "#0c1321",
+                        "tertiary-fixed-dim": "#bcc9ca",
+                        "background": "#0c1321",
+                        "on-secondary": "#203243",
+                        "on-secondary-fixed": "#091d2e",
+                        "surface-variant": "#2e3544",
+                        "surface-container-highest": "#2e3544",
+                        "secondary-fixed-dim": "#b5c8df",
+                        "on-tertiary-fixed": "#121e1f",
+                        "primary-container": "#d4af37",
+                        "inverse-on-surface": "#2a3040",
+                        "on-error": "#690005",
+                        "secondary": "#b5c8df",
+                        "outline": "#99907c",
+                        "surface-container-low": "#151b2a",
+                        "on-primary": "#3c2f00",
+                        "inverse-surface": "#dce2f6",
+                        "on-secondary-fixed-variant": "#36485b",
+                        "inverse-primary": "#735c00",
+                        "error-container": "#93000a",
+                        "tertiary-container": "#a8b5b6",
+                        "primary-fixed": "#ffe088",
+                        "primary": "#f2ca50"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(25, 32, 46, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .neon-line {
+            filter: drop-shadow(0 0 8px rgba(242, 202, 80, 0.6));
+        }
+        body {
+            background-color: #0c1321;
+            color: #dce2f6;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0c1321]/60 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<span class="text-xl font-black text-[#f2ca50] tracking-widest font-['Manrope'] uppercase">DISCOUNT DYNASTY</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<button class="text-[#f2ca50] font-['Manrope'] font-bold tracking-tighter uppercase text-sm">Vault</button>
+<button class="text-[#dce2f6]/70 font-['Manrope'] font-bold tracking-tighter uppercase text-sm hover:text-[#f2ca50] transition-colors">Market</button>
+<button class="text-[#dce2f6]/70 font-['Manrope'] font-bold tracking-tighter uppercase text-sm hover:text-[#f2ca50] transition-colors">Ranks</button>
+<button class="text-[#dce2f6]/70 font-['Manrope'] font-bold tracking-tighter uppercase text-sm hover:text-[#f2ca50] transition-colors">Treasury</button>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#f2ca50] cursor-pointer active:scale-95 duration-200">notifications</span>
+<div class="w-10 h-10 rounded-full border border-[#f2ca50]/30 p-0.5">
+<img alt="User Profile Avatar" class="w-full h-full rounded-full object-cover" data-alt="close-up portrait of a professional male executive with sharp features and neutral expression against a dark studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcUeg3xZnIKWJYqzqWjKH2ypOMKyU3jW6n92859JJTlnAcuN0FnFiGwLWkqZE5QxEmO8X3eX1UdjYIIAwSoDknbF0imheijaArPkonc_KiSyELMwCo9-NBB2Sst6W7OMnuinclY4cyTWGYY5BRITzi_somMT4C_2k8y-P--v0QjxEDfv9OoAUkgeS8q04-0wNm1I2ZjSKI3P4-cLCzQFkk7Wp268j4PdX7PQQrz5r8Kc9gYPaxU0ugtJgOAYRHRXp3hyQyBzbLyZuh"/>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 bg-gradient-to-b from-[#4d4635]/20 to-transparent h-[1px] w-full"></div>
+</header>
+<main class="pt-24 px-6 max-w-7xl mx-auto space-y-10">
+<!-- Hero Section: The Economic Storm -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Central Liquidity Vault Gauge -->
+<div class="lg:col-span-5 flex flex-col items-center justify-center space-y-6 bg-surface-container-low rounded-xl p-10 border border-outline-variant/15 relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none"></div>
+<h2 class="font-headline text-on-surface-variant text-sm tracking-[0.2em] uppercase font-semibold">Liquidity Vault</h2>
+<div class="relative w-64 h-64 flex items-center justify-center">
+<!-- Gauge Track -->
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container-highest" cx="128" cy="128" fill="transparent" r="110" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-primary neon-line transition-all duration-1000" cx="128" cy="128" fill="transparent" r="110" stroke="currentColor" stroke-dasharray="691" stroke-dashoffset="138" stroke-width="12"></circle>
+</svg>
+<!-- Inner Content -->
+<div class="absolute flex flex-col items-center text-center">
+<span class="font-headline text-5xl font-extralight tracking-tighter text-on-surface">82<span class="text-2xl text-primary">%</span></span>
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mt-1">Fortified</span>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-inverse-primary/20 px-4 py-2 rounded-lg border border-primary/20">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+<span class="font-headline font-bold text-primary text-xs uppercase tracking-widest">Level 3: Economic Storm</span>
+</div>
+</div>
+<!-- Market Sentinel & Charts -->
+<div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
+<!-- Supplier Sentiment -->
+<div class="glass-panel rounded-xl p-6 border border-outline-variant/10 flex flex-col justify-between">
+<div>
+<h3 class="font-headline text-xs tracking-widest uppercase text-on-surface-variant mb-4">Supplier Sentiment</h3>
+<div class="flex items-end gap-2">
+<span class="font-headline text-4xl font-light text-on-surface">0.94</span>
+<span class="text-primary text-xs font-bold mb-1 tracking-tighter">+2.4%</span>
+</div>
+</div>
+<div class="h-24 w-full mt-4 flex items-center overflow-hidden">
+<!-- Simulated Heart-rate Line -->
+<svg class="w-full h-full overflow-visible" viewbox="0 0 200 60">
+<path class="neon-line" d="M0,30 L20,30 L30,10 L45,50 L55,20 L70,30 L100,30 L110,55 L125,5 L140,40 L160,30 L200,30" fill="none" stroke="#f2ca50" stroke-width="1.5"></path>
+</svg>
+</div>
+</div>
+<!-- Treasury Yield Chart -->
+<div class="glass-panel rounded-xl p-6 border border-outline-variant/10 flex flex-col justify-between">
+<div>
+<h3 class="font-headline text-xs tracking-widest uppercase text-on-surface-variant mb-4">Treasury Yields</h3>
+<div class="flex items-end gap-2">
+<span class="font-headline text-4xl font-light text-on-surface">$2.4M</span>
+</div>
+</div>
+<div class="h-24 w-full mt-4 relative">
+<!-- Simulated Area Chart -->
+<div class="absolute bottom-0 w-full h-16 bg-gradient-to-t from-primary/20 to-transparent rounded-b-lg"></div>
+<svg class="w-full h-full absolute bottom-0 overflow-visible" viewbox="0 0 200 60">
+<path d="M0,50 Q40,40 80,45 T160,20 T200,10" fill="none" stroke="#f2ca50" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Strategic Candlestick (Condensed) -->
+<div class="md:col-span-2 glass-panel rounded-xl p-6 border border-outline-variant/10">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline text-xs tracking-widest uppercase text-on-surface-variant">Arbitrage Market Flux</h3>
+<div class="flex gap-2">
+<span class="w-2 h-2 rounded-full bg-primary/40"></span>
+<span class="w-2 h-2 rounded-full bg-primary/10"></span>
+</div>
+</div>
+<div class="flex items-end justify-between h-32 gap-4 px-2">
+<!-- Candlestick Visuals -->
+<div class="flex flex-col items-center w-4 h-full">
+<div class="w-[1px] h-full bg-outline-variant/30 flex items-center justify-center">
+<div class="w-4 h-12 bg-primary/20 border border-primary/40"></div>
+</div>
+</div>
+<div class="flex flex-col items-center w-4 h-full">
+<div class="w-[1px] h-full bg-outline-variant/30 flex items-center justify-center">
+<div class="w-4 h-20 bg-primary/40 border border-primary/60"></div>
+</div>
+</div>
+<div class="flex flex-col items-center w-4 h-full">
+<div class="w-[1px] h-full bg-outline-variant/30 flex items-center justify-center">
+<div class="w-4 h-8 bg-error/20 border border-error/40"></div>
+</div>
+</div>
+<div class="flex flex-col items-center w-4 h-full">
+<div class="w-[1px] h-full bg-outline-variant/30 flex items-center justify-center">
+<div class="w-4 h-24 bg-primary/80 border border-primary shadow-[0_0_10px_rgba(242,202,80,0.3)]"></div>
+</div>
+</div>
+<div class="flex flex-col items-center w-4 h-full">
+<div class="w-[1px] h-full bg-outline-variant/30 flex items-center justify-center">
+<div class="w-4 h-16 bg-primary/40 border border-primary/60"></div>
+</div>
+</div>
+<div class="flex flex-col items-center w-4 h-full">
+<div class="w-[1px] h-full bg-outline-variant/30 flex items-center justify-center">
+<div class="w-4 h-12 bg-error/20 border border-error/40"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Treasury Lords & Dynamic Actions -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Top Treasury Lords Card -->
+<div class="lg:col-span-1 bg-surface-container-low rounded-xl p-8 border border-outline-variant/15 flex flex-col h-full">
+<div class="flex items-center justify-between mb-8">
+<h3 class="font-headline text-sm tracking-[0.15em] uppercase font-bold text-on-surface">Top Treasury Lords</h3>
+<span class="material-symbols-outlined text-primary/60 text-xl">military_tech</span>
+</div>
+<div class="space-y-6 flex-1">
+<!-- Rank 1 -->
+<div class="flex items-center justify-between group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img alt="Executive Profile" class="w-12 h-12 rounded-lg object-cover grayscale group-hover:grayscale-0 transition-all border border-primary/30" data-alt="sharp portrait of a business leader with glasses, professional studio lighting with deep shadows and navy accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwK7LnF2M6bNRuw3_H1h54Kb8t1xFTEUSUj2kBh2zRlJ805UXRV9igiXDzj7G3fUtOuTiERvjjjV7yLF0VRNleQ0R2fZ8An8he30BzAQxN_FpMC8Ny9daK4qhmK1DASKybOlCgRSS60AibZdJ2mO8qPjynaNF-4P59UWAyTBTb6iKXHqJ9PI2gob9WH5l-8yivKaQYhiwkr6TDZl4JLxl-KfzwSp26hOGyf0Wl-8O2OKjUbN8YAvSHkAc7LJpprDvBi1lxUEzlltcg"/>
+<div class="absolute -top-2 -left-2 bg-primary text-on-primary text-[10px] font-black w-5 h-5 flex items-center justify-center rounded-full shadow-lg">1</div>
+</div>
+<div>
+<p class="font-headline font-semibold text-sm text-on-surface">Baron von Cash</p>
+<p class="text-[10px] uppercase tracking-tighter text-on-surface-variant">98.2 Efficiency</p>
+</div>
+</div>
+<span class="text-primary font-headline font-bold text-sm">$4.2M</span>
+</div>
+<!-- Rank 2 -->
+<div class="flex items-center justify-between group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img alt="Executive Profile" class="w-12 h-12 rounded-lg object-cover grayscale group-hover:grayscale-0 transition-all border border-outline-variant/30" data-alt="composed business woman in professional attire, looking directly at camera, soft navy background lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4oMy-RxhJyPoatlA4StIqAxqE0BjTeX-SH-d3h_DuAnTTZYEwOXOsTBoRbilxCNb5E0QBctC73IZ9dX8cIjlvc4pjQEsmxDmL54qHA1O9fUmynEwSYHwMXYxQQtiIx9FZZ4OuSKQVXAwe7-mWXlOOMSPeAwVJ4KcEXR-1_A0Uq3RgGG3Kxl0cWDn4Svs_xRn1KmPJqGlaBXXBsYLh3Vp0XXJTsDDuHUhLKpVyyJTAkXCXmoy_lxmSP9kImxB6DUouoxqWzuzLERhC"/>
+</div>
+<div>
+<p class="font-headline font-semibold text-sm text-on-surface">Duchess Debentures</p>
+<p class="text-[10px] uppercase tracking-tighter text-on-surface-variant">94.8 Efficiency</p>
+</div>
+</div>
+<span class="text-on-surface/80 font-headline font-bold text-sm">$3.8M</span>
+</div>
+<!-- Rank 3 -->
+<div class="flex items-center justify-between group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img alt="Executive Profile" class="w-12 h-12 rounded-lg object-cover grayscale group-hover:grayscale-0 transition-all border border-outline-variant/30" data-alt="middle aged business man in suit laughing naturally, luxury office setting with blurred bokeh lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVTqNW0nDrEshI0tEcz_safRiFkWShGnSFhhRcC6zZy5oPVvmTMFoF_qe77_Y430XyYIEmGkuIA8QWEnrLtOnuYOoSSfTuo2u5J6xrRHXrJ-nMIu2bJxNKDbCLp8skOxjctfY3WM_Ri4nUUx4-M1lhKUju80SctKl_OfrELyuiHmEsHGy0lcmzO-zfGh1Ow_DxS-74gZDd6cL5pOlRdwUI5oOYc7lqRd9VzWUkFBQrRiFQ3nF0W6zNcsFZ0D5GPuy3dPRUK2jWYSLC"/>
+</div>
+<div>
+<p class="font-headline font-semibold text-sm text-on-surface">The Yield King</p>
+<p class="text-[10px] uppercase tracking-tighter text-on-surface-variant">91.5 Efficiency</p>
+</div>
+</div>
+<span class="text-on-surface/80 font-headline font-bold text-sm">$3.1M</span>
+</div>
+</div>
+<button class="mt-8 w-full bg-surface-container-highest/50 hover:bg-surface-container-highest py-3 rounded-lg text-xs font-bold uppercase tracking-widest text-on-surface-variant transition-all">View Full Ledger</button>
+</div>
+<!-- Active Discounts / Market -->
+<div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Golden Opportunity Card -->
+<div class="bg-gradient-to-br from-[#f2ca50]/20 to-transparent rounded-xl p-8 border border-[#f2ca50]/30 relative group overflow-hidden">
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-[#f2ca50]/10 rounded-full blur-3xl group-hover:bg-[#f2ca50]/20 transition-all duration-700"></div>
+<div class="flex flex-col h-full justify-between gap-8 relative z-10">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-xl">bolt</span>
+<span class="text-primary text-[10px] font-black uppercase tracking-widest">Priority Dispatch</span>
+</div>
+<h3 class="font-headline text-2xl font-bold text-on-surface leading-tight">Secure Early Payment <br/>Discounts (3.5%)</h3>
+<p class="text-sm text-on-surface-variant mt-2">Expiring in 4h 22m. Liquidity surplus available.</p>
+</div>
+<button class="bg-primary hover:bg-primary-container text-on-primary font-headline font-black py-4 px-6 rounded-lg uppercase tracking-widest text-xs shadow-[0_0_20px_rgba(242,202,80,0.4)] transition-all active:scale-95">Initiate Vault Capture</button>
+</div>
+</div>
+<!-- Automated Rebalancing Status -->
+<div class="glass-panel rounded-xl p-8 border border-outline-variant/10 flex flex-col justify-between">
+<div class="flex items-center gap-4">
+<div class="p-3 bg-surface-container-highest rounded-lg">
+<span class="material-symbols-outlined text-on-surface-variant">sync_alt</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-sm text-on-surface">Auto-Rebalance</h4>
+<p class="text-[10px] text-primary uppercase font-bold tracking-widest">Active &amp; Optimization On</p>
+</div>
+</div>
+<div class="mt-8 space-y-4">
+<div class="flex justify-between items-center text-xs">
+<span class="text-on-surface-variant">Risk Exposure</span>
+<span class="text-on-surface font-mono">Low (0.12)</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[12%]"></div>
+</div>
+<div class="flex justify-between items-center text-xs">
+<span class="text-on-surface-variant">Yield Velocity</span>
+<span class="text-on-surface font-mono">High (1.8x)</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[88%] shadow-[0_0_8px_rgba(242,202,80,0.6)]"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 border-t border-[#4d4635]/15 bg-[#0c1321]/80 backdrop-blur-2xl flex justify-around items-center px-4 pb-6 pt-2 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
+<a class="flex flex-col items-center justify-center text-[#f2ca50] bg-[#f2ca50]/10 rounded-xl px-4 py-1 shadow-[0_0_15px_rgba(242,202,80,0.2)] active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-['Inter'] text-[10px] font-medium uppercase tracking-widest mt-1">Vault</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#dce2f6]/50 hover:text-[#f2ca50] transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">candlestick_chart</span>
+<span class="font-['Inter'] text-[10px] font-medium uppercase tracking-widest mt-1">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#dce2f6]/50 hover:text-[#f2ca50] transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">military_tech</span>
+<span class="font-['Inter'] text-[10px] font-medium uppercase tracking-widest mt-1">Ranks</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#dce2f6]/50 hover:text-[#f2ca50] transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-['Inter'] text-[10px] font-medium uppercase tracking-widest mt-1">Treasury</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#dce2f6]/50 hover:text-[#f2ca50] transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Inter'] text-[10px] font-medium uppercase tracking-widest mt-1">Settings</span>
+</a>
+</nav>
+<!-- Floating Action Button: Suppressed for focused dashboard context per instructions -->
+</body></html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Sovereign Ledger - Markets</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed": "#ffe088",
+              "on-tertiary": "#263334",
+              "on-primary-fixed": "#241a00",
+              "outline": "#99907c",
+              "on-error": "#690005",
+              "secondary-fixed": "#d1e4fb",
+              "on-background": "#dce2f6",
+              "on-tertiary-fixed-variant": "#3d494a",
+              "primary-container": "#d4af37",
+              "on-secondary-container": "#a4b7cd",
+              "tertiary-container": "#a8b5b6",
+              "inverse-on-surface": "#2a3040",
+              "surface-container-high": "#232a39",
+              "on-secondary-fixed": "#091d2e",
+              "secondary": "#b5c8df",
+              "surface-container-lowest": "#070e1c",
+              "tertiary-fixed-dim": "#bcc9ca",
+              "background": "#0c1321",
+              "primary": "#f2ca50",
+              "surface-bright": "#323949",
+              "on-surface": "#dce2f6",
+              "inverse-surface": "#dce2f6",
+              "primary-fixed-dim": "#e9c349",
+              "surface-variant": "#2e3544",
+              "error": "#ffb4ab",
+              "on-secondary-fixed-variant": "#36485b",
+              "on-tertiary-container": "#3b4748",
+              "surface-tint": "#e9c349",
+              "inverse-primary": "#735c00",
+              "error-container": "#93000a",
+              "tertiary-fixed": "#d8e5e6",
+              "on-error-container": "#ffdad6",
+              "on-secondary": "#203243",
+              "secondary-fixed-dim": "#b5c8df",
+              "on-primary": "#3c2f00",
+              "surface-dim": "#0c1321",
+              "on-primary-container": "#554300",
+              "outline-variant": "#4d4635",
+              "tertiary": "#c3d1d2",
+              "on-surface-variant": "#d0c5af",
+              "surface-container-low": "#151b2a",
+              "on-primary-fixed-variant": "#574500",
+              "surface-container-highest": "#2e3544",
+              "surface-container": "#19202e",
+              "surface": "#0c1321",
+              "secondary-container": "#36485b",
+              "on-tertiary-fixed": "#121e1f"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(25, 32, 46, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .custom-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #f2ca50;
+            cursor: pointer;
+            border-radius: 50%;
+            border: 2px solid #0c1321;
+        }
+        .glow-pulse {
+            box-shadow: 0 0 15px rgba(242, 202, 80, 0.4);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-[#0c1321] shadow-[0px_20px_40px_rgba(0,0,0,0.06)] flex justify-between items-center px-6 h-20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center border border-outline-variant/20 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a professional executive in a dark tailored suit with confident expression and soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp13aSh4NW3a8rKYOIqmBldhurtE_mTjB7KD967G-tBOrSKT4Hq8_4QU-ppgtZibmbRBSeaOi8OkGYp8IE-cQSxOUo5fGt1DKoXkxdeacjPHLrRbI2Jd9QkCsF7WT-nivZYi_C5IlW8TgEn_t-dfxKqjVqnEVdKNpeka8bLTgxczhefeI74Qv__UF9TinOwQXZeo7cZjdR5aVVH81KULweSvWm5PPm2pqRo6L-ugDpyEnUP5GwJhb50GkvJprk7-JP2rcqKXOj2Dh7"/>
+</div>
+<span class="text-2xl font-bold text-[#f2ca50] tracking-widest uppercase font-headline">The Sovereign Ledger</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-[#f2ca50]/10 transition-colors text-[#f2ca50]">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<main class="pt-24 px-4 space-y-6">
+<!-- Market Overview Section -->
+<section class="space-y-4">
+<div class="flex justify-between items-end">
+<div>
+<h1 class="font-headline text-3xl font-extrabold tracking-tighter text-on-surface uppercase">Markets</h1>
+<p class="text-on-surface-variant text-sm font-label tracking-widest uppercase opacity-70">Active Discount Opportunities</p>
+</div>
+<div class="text-right">
+<div class="text-primary font-headline text-2xl font-bold tracking-tighter">14.2%</div>
+<div class="text-[10px] uppercase tracking-widest text-on-surface-variant">Avg Yield</div>
+</div>
+</div>
+<!-- Supplier Health Grid -->
+<div class="grid grid-cols-2 gap-3">
+<div class="glass-card p-4 rounded-xl border border-outline-variant/10">
+<div class="flex justify-between items-center mb-2">
+<span class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant">Global Logistics</span>
+<span class="text-xs font-semibold text-primary">94%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 94%"></div>
+</div>
+</div>
+<div class="glass-card p-4 rounded-xl border border-outline-variant/10">
+<div class="flex justify-between items-center mb-2">
+<span class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant">Zenith Foundry</span>
+<span class="text-xs font-semibold text-error">42%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 42%"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Search & Filter -->
+<section class="relative">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-lg" data-icon="search">search</span>
+</div>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 pl-12 pr-4 text-xs tracking-widest font-label focus:ring-1 focus:ring-primary/50 placeholder:text-outline/50 uppercase" placeholder="SEARCH PENDING INVOICES..." type="text"/>
+</section>
+<!-- Invoices List -->
+<section class="space-y-4">
+<!-- Invoice Row 1 -->
+<div class="glass-card rounded-xl border border-outline-variant/10 p-5 space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline font-bold text-lg text-on-surface">INV-8842-X</h3>
+<p class="text-xs text-on-surface-variant font-label uppercase tracking-widest">Titanium Supply Co.</p>
+</div>
+<div class="text-right">
+<div class="text-xl font-headline font-extrabold text-on-surface">$128,400</div>
+<div class="text-[10px] text-on-tertiary-container bg-tertiary-container px-2 py-0.5 rounded uppercase font-bold tracking-tighter">Due in 48 Days</div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">
+<span>Days Early</span>
+<span class="text-primary">30 Days</span>
+</div>
+<input class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer custom-slider" max="45" min="0" type="range" value="30"/>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Projected Yield</span>
+<span class="text-2xl font-headline font-extrabold text-[#00ff9d]">18.5% <span class="text-xs align-top mt-1 inline-block">APR</span></span>
+</div>
+<button class="bg-primary text-on-primary font-bold px-6 py-3 rounded-lg flex items-center gap-2 glow-pulse active:scale-95 transition-transform uppercase text-xs tracking-widest">
+                        Capture Discount
+                    </button>
+</div>
+</div>
+<!-- Invoice Row 2 -->
+<div class="glass-card rounded-xl border border-outline-variant/10 p-5 space-y-4 opacity-90">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline font-bold text-lg text-on-surface">INV-7291-K</h3>
+<p class="text-xs text-on-surface-variant font-label uppercase tracking-widest">Aero Systems Ltd.</p>
+</div>
+<div class="text-right">
+<div class="text-xl font-headline font-extrabold text-on-surface">$42,900</div>
+<div class="text-[10px] text-on-secondary-container bg-secondary-container px-2 py-0.5 rounded uppercase font-bold tracking-tighter">Due in 12 Days</div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">
+<span>Days Early</span>
+<span class="text-primary">8 Days</span>
+</div>
+<input class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer custom-slider" max="45" min="0" type="range" value="8"/>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Projected Yield</span>
+<span class="text-2xl font-headline font-extrabold text-[#00ff9d]">12.1% <span class="text-xs align-top mt-1 inline-block">APR</span></span>
+</div>
+<button class="bg-surface-container-highest text-primary font-bold px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-primary/10 active:scale-95 transition-transform uppercase text-xs tracking-widest">
+                        Capture Discount
+                    </button>
+</div>
+</div>
+<!-- Invoice Row 3 -->
+<div class="glass-card rounded-xl border border-outline-variant/10 p-5 space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline font-bold text-lg text-on-surface">INV-9901-L</h3>
+<p class="text-xs text-on-surface-variant font-label uppercase tracking-widest">Silicon Dynamics</p>
+</div>
+<div class="text-right">
+<div class="text-xl font-headline font-extrabold text-on-surface">$310,000</div>
+<div class="text-[10px] text-on-tertiary-container bg-tertiary-container px-2 py-0.5 rounded uppercase font-bold tracking-tighter">Due in 60 Days</div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">
+<span>Days Early</span>
+<span class="text-primary">45 Days</span>
+</div>
+<input class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer custom-slider" max="45" min="0" type="range" value="45"/>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Projected Yield</span>
+<span class="text-2xl font-headline font-extrabold text-[#00ff9d]">24.8% <span class="text-xs align-top mt-1 inline-block">APR</span></span>
+</div>
+<button class="bg-primary text-on-primary font-bold px-6 py-3 rounded-lg flex items-center gap-2 glow-pulse active:scale-95 transition-transform uppercase text-xs tracking-widest">
+                        Capture Discount
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-[#0c1321]/80 backdrop-blur-xl flex justify-around items-center h-20 px-4 pb-safe shadow-[0px_-10px_30px_rgba(0,0,0,0.3)] border-t border-[#4d4635]/15">
+<a class="flex flex-col items-center justify-center text-[#dce2f6]/50 hover:text-[#f2ca50] active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest">Treasury</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#dce2f6]/50 hover:text-[#f2ca50] active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="receipt_long">receipt_long</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest">Invoices</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#f2ca50] bg-[#f2ca50]/10 rounded-xl px-4 py-1 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="monitoring">monitoring</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest">Markets</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#dce2f6]/50 hover:text-[#f2ca50] active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest">Profile</span>
+</a>
+</nav>
+</body></html>
