@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RestoreX | Secure Your Discord Server</title>
+    <meta name="title" content="RestoreX | Secure Your Discord Server">
+    <meta name="description"
+        content="RestoreX - Advanced protection, moderation, and automation all in one powerful bot.">
+    <meta name="keywords" content="Discord Admin Bot, RestoreX, Anti-Nuke, Server Security, Moderation Bot">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://restorex.ddns.net/">
+    <meta property="og:title" content="RestoreX | Secure Your Discord Server">
+    <meta property="og:description"
+        content="RestoreX - Advanced protection, moderation, and automation all in one powerful bot.">
+    <meta property="og:image" content="https://restorex.ddns.net/bot_logo.jpg">
+    <meta property="twitter:card" content="summary_large_image">
+
+    <link rel="icon" type="image/jpeg" href="bot_logo.jpg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "RestoreX",
+      "operatingSystem": "Discord",
+      "applicationCategory": "UtilityApplication",
+      "creator": {
+        "@type": "Person",
+        "name": "@lepem"
+      }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Manrope:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-light: #f1f5f4;
+            --bg-dark: #0b1120;
+            --bg-darker: #05080f;
+            --text-dark: #0f172a;
+            --text-light: #f8fafc;
+            --text-muted-dark: #64748b;
+            --text-muted-light: #94a3b8;
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.4);
+            --border-light: rgba(0, 0, 0, 0.1);
+            --border-dark: rgba(255, 255, 255, 0.1);
+        }
+
+        html {
+            font-size: 110%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .brand-font {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .navbar-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 100;
+            padding-top: 2rem;
+            animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        @keyframes slideDown {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pill-nav {
+            background-color: var(--bg-dark);
+            padding: 0.5rem;
+            border-radius: 99px;
+            display: flex;
+            gap: 0.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .pill-nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 99px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .pill-nav a.active {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .pill-nav a:hover:not(.active) {
+            color: var(--accent);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .hero {
+            padding: 6rem 5% 2rem;
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            width: 100%;
+        }
+
+        .hero-image-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-image-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            width: 80%;
+            height: 20px;
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-img {
+            width: 100%;
+            max-width: 380px;
+            border-radius: 40px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .badge {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(3.5rem, 6vw, 5.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+            animation-delay: 0.1s;
+        }
+
+        .hero-text h1 span {
+            color: #94a3b8;
+        }
+
+        .hero-text p {
+            font-size: 1.35rem;
+            color: var(--text-muted-dark);
+            margin-bottom: 3rem;
+            max-width: 520px;
+            animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+            animation-delay: 0.3s;
+        }
+
+        .hero-ctas {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+            animation-delay: 0.5s;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1.1rem 2.5rem;
+            border-radius: 99px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            font-size: 1.15rem;
+            border: 2px solid transparent;
+        }
+
+        .btn-outline {
+            border-color: var(--text-dark);
+            color: var(--text-dark);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--text-dark);
+            color: var(--text-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white !important;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            border-color: var(--accent);
+            animation: pulseGlow 2.5s infinite;
+        }
+
+        .btn-primary:hover {
+            background-color: #2563eb;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.6);
+            transform: translateY(-3px) scale(1.02);
+            animation: none;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(59, 130, 246, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+        }
+
+        @keyframes heroFadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .link-text {
+            color: var(--text-muted-dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .link-text:hover {
+            color: var(--text-dark);
+        }
+
+        .dark-block {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            border-radius: 40px;
+            padding: 5rem 4rem;
+            margin: 0 2rem 4rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            position: relative;
+        }
+
+        .block-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-muted-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 3rem;
+        }
+
+        .dark-block h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .dark-block>p {
+            text-align: center;
+            color: var(--text-muted-light);
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .feature-icon {
+            background-color: #f1ebd7;
+            /* Cream/light color from screenshot */
+            color: #d97757;
+            /* Accent icon color */
+            min-width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .feature-item p {
+            color: var(--text-muted-light);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .pricing-section {
+            padding: 4rem 5% 8rem;
+            text-align: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .pricing-header {
+            margin-bottom: 4rem;
+        }
+
+        .pricing-header h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-top: 0.5rem;
+            letter-spacing: -1px;
+            font-weight: 800;
+        }
+
+        .pricing-header span {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-transform: capitalize;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        @media (max-width: 900px) {
+            .pricing-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                padding-bottom: 2rem;
+            }
+            .pricing-card {
+                flex: 0 0 90%;
+                scroll-snap-align: center;
+            }
+        }
+
+        .pricing-card {
+            background-color: #fdfdfd;
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            padding: 3.5rem 2rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .pricing-card:hover {
+            border-color: var(--text-muted-light);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .pricing-card.pro {
+            background-color: #ffffff;
+            transform: scale(1.05);
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #cbd5e1;
+            padding: 4.5rem 2rem;
+        }
+
+        .pricing-card.pro:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -18px;
+            right: 32px;
+            background-color: var(--bg-light);
+            border: 1px solid #e2e8f0;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.8rem;
+            color: var(--text-dark);
+        }
+
+        .pricing-card.pro .pricing-badge {
+            border-color: #cbd5e1;
+            background-color: #ffffff;
+        }
+
+        .pricing-card h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .pricing-card p {
+            color: var(--text-muted-dark);
+            font-size: 0.95rem;
+            line-height: 2.2;
+            margin-bottom: 2.5rem;
+            white-space: pre-line;
+            font-weight: 500;
+        }
+
+        .pricing-btn {
+            display: inline-flex;
+            background-color: var(--text-dark);
+            color: var(--text-light);
+            padding: 0.8rem 1.8rem;
+            border-radius: 99px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .pricing-btn:hover {
+            background-color: #1e293b;
+            transform: translateY(-2px);
+        }
+
+        .faq-content {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .faq-list {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .faq-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            border-bottom: 1px solid var(--border-dark);
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-icon {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            min-width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .faq-text h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .faq-text p {
+            color: var(--text-muted-light);
+            font-size: 0.9rem;
+        }
+
+        .faq-image {
+            flex: 0.8;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .faq-image img {
+            width: 100%;
+            max-width: 250px;
+            position: relative;
+            z-index: 2;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .pedestal {
+            position: absolute;
+            bottom: -50px;
+            width: 110%;
+            height: 150px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+            border-radius: 50% 50% 10px 10px;
+            z-index: 1;
+        }
+
+        .support-cta {
+            padding: 6rem 5%;
+            text-align: center;
+        }
+
+        .support-cta h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .support-cta p {
+            color: var(--text-muted-dark);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            background-color: var(--bg-darker);
+            color: var(--text-light);
+            border-radius: 40px 40px 0 0;
+            padding: 3rem 5% 1rem;
+            margin-top: 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-logo-wrap img {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted-light);
+            font-size: 0.9rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col a {
+            color: var(--text-muted-light);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--text-light);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-dark);
+            color: var(--text-muted-light);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Scroll Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-delay-1 {
+            transition-delay: 0.15s;
+        }
+
+        .fade-delay-2 {
+            transition-delay: 0.3s;
+        }
+
+        /* Back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            background-color: #2563eb;
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+        }
+
+        .pill-nav a.login-btn {
+            background-color: var(--accent);
+            color: white;
+            font-weight: 700;
+            margin-left: 0.5rem;
+            box-shadow: 0 4px 12px var(--accent-glow);
+        }
+
+        .pill-nav a.login-btn:hover {
+            background-color: #2563eb;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 900px) {
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-text {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-content {
+                flex-direction: column;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-logo-wrap {
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .dark-block {
+                margin: 0 1rem 3rem;
+                padding: 3rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar-container">
+        <nav class="pill-nav">
+            <a href="#" class="active">Home</a>
+            <a href="#features">Features</a>
+            <a href="https://discord.com/discovery/applications/1484501968759160914" target="_blank">Discord Page</a>
+            <a href="#faq">FAQ</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="https://discord.com/oauth2/authorize?client_id=1484501968759160914&response_type=code&redirect_uri=https%3A%2F%2Frestorex.ddns.net%2Fauth%2Fdiscord%2Fcallback&scope=identify%20guilds"
+                class="login-btn" target="_blank">Login</a>
+        </nav>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-image-wrapper">
+                <img src="bot_logo.jpg" alt="RestoreX Bot Logo" class="hero-img">
+            </div>
+            <div class="hero-text brand-font">
+                <span class="badge">Security Focused</span>
+                <h1>Meet <span>RestoreX</span></h1>
+                <p style="font-family: 'Manrope', sans-serif;">Advanced protection, moderation, and automation all in
+                    one powerful bot. Secure your Discord server actively.</p>
+
+                <div class="hero-ctas">
+                    <a href="https://discord.com/oauth2/authorize?client_id=1484501968759160914&scope=bot%20applications.commands&permissions=8"
+                        class="btn btn-primary" target="_blank">
+                        Invite <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                    <a href="#features" class="link-text">See Features</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="dark-block">
+        <div class="block-header">
+            <span>Features</span>
+            <span>Unmatched Security</span>
+        </div>
+
+        <h2>Intelligently, all in one</h2>
+        <p>Advanced integration to supercharge even the core features of your community.</p>
+
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div>
+                    <h3>Anti-Nuke Protection</h3>
+                    <p>Detects and stops mass channel deletes, role deletes, and destructive actions instantly.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-lock"></i></div>
+                <div>
+                    <h3>Role & Channel Guard</h3>
+                    <p>Prevents unauthorized creation, deletion, or modification of server structure.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                <div>
+                    <h3>Warn System</h3>
+                    <p>Track users with unique warning IDs and maintain full moderation history.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-bell"></i></div>
+                <div>
+                    <h3>Auto Punish</h3>
+                    <p>Automatically kick or ban users after reaching configured thresholds.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-circle-check"></i></div>
+                <div>
+                    <h3>Verification System</h3>
+                    <p>Protect your server from raids using advanced, reliable verification methods.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-gift"></i></div>
+                <div>
+                    <h3>Giveaway System</h3>
+                    <p>Run giveaways with duration, winners, and custom styled embeds seamlessly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing-section">
+        <div class="pricing-header brand-font">
+            <span>Pricing</span>
+            <h2>Which One's For You?</h2>
+            <div style="display: inline-block; background-color: rgba(59, 130, 246, 0.1); color: var(--accent); padding: 0.5rem 1.2rem; border-radius: 99px; font-weight: 700; font-size: 0.95rem; margin-top: 1rem;">
+                Currently in Development
+            </div>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-badge">0c</div>
+                <h3 class="brand-font">Free</h3>
+                <p>Standard Moderation Tools
+                    Basic AI commands
+                    Limited Integrations</p>
+            </div>
+            <div class="pricing-card pro">
+                <div class="pricing-badge">0c</div>
+                <h3 class="brand-font">Pro</h3>
+                <p>Advanced Moderation
+                    Enhanced AI features
+                    Expanded Integrations
+                    Event Management</p>
+                <div style="text-align: center;"><a href="#" class="pricing-btn">Current Plan</a></div>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-badge">0c</div>
+                <h3 class="brand-font">Ultra</h3>
+                <p>AI Driven
+                    Full Server Moderation
+                    Custom Integrations
+                    Content Management
+                    Priority Support</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="dark-block" style="background-color: var(--bg-darker);">
+        <div class="block-header">
+            <span>FAQ</span>
+            <span>Community Focused</span>
+        </div>
+
+        <h2 style="text-align: left;">You ask, We Answer</h2>
+
+        <div class="faq-content">
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-icon"><i class="fa-solid fa-question"></i></div>
+                    <div class="faq-text">
+                        <h3>How can I integrate RestoreX with my server?</h3>
+                        <p>Simply click the "Invite" button, authenticate with your Discord account, and select the
+                            server you wish to secure. Ensure the bot has administrative permissions for anti-nuke to
+                            work properly.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-icon"><i class="fa-solid fa-question"></i></div>
+                    <div class="faq-text">
+                        <h3>Does the Anti-Nuke system require configuration?</h3>
+                        <p>Yes, while RestoreX comes with smart defaults, you can deeply customize thresholds and
+                            trusted roles through our intuitive setup commands to perfectly match your server's needs.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-icon"><i class="fa-solid fa-question"></i></div>
+                    <div class="faq-text">
+                        <h3>Can I get analytics for my Discord server activities?</h3>
+                        <p>Our logging & alerts system provides real-time tracking of infractions, destructive actions,
+                            and moderation history so you're always informed.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-icon"><i class="fa-solid fa-question"></i></div>
+                    <div class="faq-text">
+                        <h3>What support options are available?</h3>
+                        <p>We maintain an active community support server where our team and community members can
+                            assist you with setup, bugs, or general queries.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-image">
+                <div class="pedestal"></div>
+                <img src="bot_logo.jpg" alt="RestoreX Mascot">
+            </div>
+        </div>
+    </section>
+
+    <section class="support-cta">
+        <h2>Join Our Support Server</h2>
+        <p>We share important updates regarding features, downtime, bugs or other problems. Stay up to date.</p>
+        <a href="https://discord.gg/mPRhYxyVQB" target="_blank" class="btn btn-outline" style="border-width: 2px;">
+            Join <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+        </a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo-wrap">
+                    <img src="bot_logo.jpg" alt="RestoreX Logo">
+                    <h3>RestoreX</h3>
+                </div>
+                <p>An intelligent and powerful bot built to protect servers from raids, nukes, and malicious activity.
+                </p>
+                <a href="https://discord.com/oauth2/authorize?client_id=1484501968759160914&scope=bot%20applications.commands&permissions=8"
+                    target="_blank" class="btn btn-outline"
+                    style="border-width: 2px; padding: 0.6rem 1.2rem; font-size: 0.95rem; margin-top: 1rem; width: fit-content; border-color: rgba(255,255,255,0.15); color: white;">
+                    <i class="fa-brands fa-discord"></i> Invite RestoreX
+                </a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Social</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>RestoreX</h4>
+                <ul>
+                    <li><a href="https://discord.gg/mPRhYxyVQB" target="_blank">Support Server</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>&copy; 2026 RestoreX. Application ID: 1484501968759160914 | Bot Developer: @lepem</span>
+            <a href="https://f9xr.github.io/" target="_blank">MADE BY F9XR TEAM</a>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        ↑
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Apply animation classes
+            document.querySelectorAll('.feature-item, .pricing-card, .faq-item, .support-cta').forEach((el, idx) => {
+                el.classList.add('animate-on-scroll');
+                if (el.classList.contains('pricing-card')) {
+                    if (idx % 3 === 1) el.classList.add('fade-delay-1');
+                    if (idx % 3 === 2) el.classList.add('fade-delay-2');
+                }
+            });
+
+            // Intersection Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+            // Back to top functionality
+            const backToTopBtn = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 400) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+
+</html>
