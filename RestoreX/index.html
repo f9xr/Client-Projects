@@ -133,13 +133,28 @@
             background-color: rgba(255, 255, 255, 0.05);
         }
         
-        .mobile-brand {
+        .nav-mobile-header {
             display: none;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mobile-brand {
             color: white;
             font-family: 'Outfit', sans-serif;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             padding-left: 0.5rem;
+        }
+
+        .mobile-menu-toggle {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem 0.5rem 0.5rem 1rem;
         }
 
         .nav-links {
@@ -148,14 +163,8 @@
             align-items: center;
         }
 
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-light);
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
+        .mobile-login {
+            display: none !important;
         }
 
         .hero {
@@ -791,28 +800,26 @@
         }
 
         @media (max-width: 900px) {
-            .mobile-brand,
-            .mobile-menu-toggle {
-                display: block;
+            .nav-mobile-header {
+                display: flex;
             }
             .pill-nav {
-                flex-wrap: wrap;
-                align-items: center;
-                justify-content: space-between;
+                flex-direction: column;
                 width: 90%;
                 max-width: 500px;
-                padding: 0.8rem 1rem;
-                transition: border-radius 0.3s ease;
+                padding: 0.8rem 1.2rem;
+                transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             }
             .pill-nav.nav-open {
-                border-radius: 20px;
+                border-radius: 24px;
             }
             .nav-links {
                 display: none;
                 flex-direction: column;
                 width: 100%;
-                order: 4;
-                padding-top: 1rem;
+                gap: 0.5rem;
+                padding-top: 1.5rem;
+                padding-bottom: 0.5rem;
                 margin-top: 0.5rem;
                 border-top: 1px solid rgba(255,255,255,0.1);
             }
@@ -823,9 +830,15 @@
             .pill-nav.nav-open .nav-links {
                 display: flex;
             }
-            .pill-nav a.login-btn {
-                margin-left: auto;
-                margin-right: 0.5rem;
+            .desktop-login {
+                display: none !important;
+            }
+            .pill-nav a.mobile-login {
+                display: flex !important;
+                justify-content: center;
+                margin-top: 1rem;
+                width: 100%;
+                margin-left: 0;
             }
             
             .hero-content {
@@ -874,19 +887,23 @@
 
     <div class="navbar-container">
         <nav class="pill-nav" id="pillNav">
-            <span class="mobile-brand">RestoreX</span>
+            <div class="nav-mobile-header">
+                <span class="mobile-brand">RestoreX</span>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu" onclick="document.getElementById('pillNav').classList.toggle('nav-open')">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
             <div class="nav-links">
                 <a href="#" class="active">Home</a>
                 <a href="#features">Features</a>
                 <a href="https://discord.com/discovery/applications/1484501968759160914" target="_blank">Discord Page</a>
                 <a href="#faq">FAQ</a>
                 <a href="contact.html">Contact Us</a>
+                <a href="https://discord.com/oauth2/authorize?client_id=1484501968759160914&response_type=code&redirect_uri=https%3A%2F%2Frestorex.ddns.net%2Fauth%2Fdiscord%2Fcallback&scope=identify%20guilds"
+                    class="login-btn mobile-login" target="_blank">Login</a>
             </div>
             <a href="https://discord.com/oauth2/authorize?client_id=1484501968759160914&response_type=code&redirect_uri=https%3A%2F%2Frestorex.ddns.net%2Fauth%2Fdiscord%2Fcallback&scope=identify%20guilds"
-                class="login-btn" target="_blank">Login</a>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu" onclick="document.getElementById('pillNav').classList.toggle('nav-open')">
-                <i class="fa-solid fa-bars"></i>
-            </button>
+                class="login-btn desktop-login" target="_blank">Login</a>
         </nav>
     </div>
 
